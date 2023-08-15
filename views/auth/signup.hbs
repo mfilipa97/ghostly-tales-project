@@ -1,8 +1,30 @@
 <div id="form">
-  <h2>Sign Up</h2>
   <form action="/auth/signup" method="POST">
+<div class="login-box">
+  <h2>Sign Up</h2>
+    <div class="user-box">
+      <input type="text" name="username" required="">
+      <label>Username <span class = "mandatory">*</span></label>
+    </div>
+    <div class="user-box">
+      <input type="email" name="email" required="">
+      <label>Email <span class = "mandatory">*</span></label>
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" required="">
+      <label>Password <span class = "mandatory">*</span></label>
+    </div>
+   <button type="submit">Sign Up</button>
+</div>
 
-    <label> Username
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>
+
+
+    <!--<label> Username
       <input type="text" name="username" placeholder="Your username" />
     </label>
 
@@ -13,12 +35,12 @@
     <label> Password
       <input type="password" name="password" placeholder="Your password" />
     </label>
+    <label> Bio
+      <input type="text" name="Bio" placeholder="Your Bio" />
+    </label>
+     <label>Image:
+          <input type="file" name="profile-image" class="form-control-file" />
+        </label>
 
-    <button type="submit">Sign Up</button>
+    <button type="submit">Sign Up</button> -->
 
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
-</div>

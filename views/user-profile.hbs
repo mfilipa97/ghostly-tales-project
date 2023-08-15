@@ -1,0 +1,16 @@
+<div>
+    <h2>{{userInSession.username}} Profile</h2>
+    <div>
+        <form action="/profile" method="POST">
+        <label>
+            <input type="text" name="profileBio" value="{{userInSession.profileBio}}">
+            <label>Image:
+        <!-- This! -->
+          <input type="file" name="movie-cover-image" class="form-control-file" />
+        </label>
+            <h1>HELLO</h1>
+        </label>
+        <button> Save Changes</button>
+        </form>
+    </div>
+</div>

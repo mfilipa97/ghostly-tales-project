@@ -10,8 +10,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
-
-// Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
+// Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
@@ -22,13 +21,13 @@ router.get("/signup", isLoggedOut, (req, res) => {
 
 // POST /auth/signup
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, email, password } = req.body;
+  const {username, email, password} = req.body;
 
   // Check that username, email, and password are provided
   if (username === "" || email === "" || password === "") {
     res.status(400).render("auth/signup", {
       errorMessage:
-        "All fields are mandatory. Please provide your username, email and password.",
+        "Username, Email and Password are mandatory. Please provide them",
     });
 
     return;
@@ -61,7 +60,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
       // Create a user and save it in the database
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({username, email, password: hashedPassword});
     })
     .then((user) => {
       res.redirect("/auth/login");
@@ -87,10 +86,10 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 // POST /auth/login
 router.post("/login", isLoggedOut, (req, res, next) => {
-  const { username, email, password } = req.body;
+  const {email, password} = req.body;
 
   // Check that username, email, and password are provided
-  if (username === "" || email === "" || password === "") {
+  if (email === "" || password === "") {
     res.status(400).render("auth/login", {
       errorMessage:
         "All fields are mandatory. Please provide username, email and password.",
@@ -133,8 +132,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
-
-          res.redirect("/");
+          res.redirect('/profile');
+          console.log("Reached profile route"); //Change so it redirects to User's profile so they can change Bio and Pic.
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
@@ -145,7 +144,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      res.status(500).render("auth/logout", { errorMessage: err.message });
+      res.status(500).render("auth/logout", {errorMessage: err.message});
       return;
     }
 

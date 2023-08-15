@@ -20,6 +20,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    favorites: [{
+      type: Schema.Types.ObjectId,
+      ref: 'favorites'
+    }],
+    profilePicUrl: {
+      type: String,
+      default: ""
+    },
+    profileBio : {
+      type: String,
+      default: " "
+    }
+
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
