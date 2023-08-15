@@ -20,7 +20,7 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", isLoggedOut, async (req, res) => {
   const {username, email, password} = req.body;
 
   // Check that username, email, and password are provided
@@ -40,6 +40,31 @@ router.post("/signup", isLoggedOut, (req, res) => {
 
     return;
   }
+
+  // Check if Username is already Taken
+ User.findOne({username}).then(result=>{
+    if (result){
+      res.status(400).render("auth/signup", {
+        errorMessage:
+          "Username already taken. Please try a different one",
+      });
+  
+      return;
+    }
+  });
+
+  // Check if email is already taken
+  User.findOne({email}).then(result=>{
+    if (result){
+      res.status(400).render("auth/signup", {
+        errorMessage:
+          "An account already exists with this email. Please try a different one",
+      });
+  
+      return;
+    }
+  });
+
 
   //   ! This regular expression checks password for special characters and minimum length
   /*
@@ -132,7 +157,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           req.session.currentUser = user.toObject();
           // Remove the password field
           delete req.session.currentUser.password;
-          res.redirect('/profile');
+          res.redirect(`/profile/${req.session.currentUser.username}`);
           console.log("Reached profile route"); //Change so it redirects to User's profile so they can change Bio and Pic.
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
@@ -151,5 +176,6 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+
 
 module.exports = router;

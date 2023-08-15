@@ -1,0 +1,19 @@
+<div id="login-form">
+  <form action="/story/{{story._id}}/edit" method="POST">
+  <div class="login-box">
+  <h2>EDIT STORY</h2>
+    <div class="user-box">
+      <input type="text" name="title" required="" value="{{story.title}}">
+      <label>title</label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="description" required="" value="{{story.description}}">
+      <label>description</span></label>
+    </div>
+   <button type="submit">EDIT</button>
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div> 
+

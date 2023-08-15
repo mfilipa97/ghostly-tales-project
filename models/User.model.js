@@ -22,11 +22,14 @@ const userSchema = new Schema(
     },
     favorites: [{
       type: Schema.Types.ObjectId,
-      ref: 'favorites'
+      ref: 'Story',
+    }],
+    userStories : [{
+      type: Schema.Types.ObjectId,
+      ref: "Story",
     }],
     profilePicUrl: {
       type: String,
-      default: ""
     },
     profileBio : {
       type: String,

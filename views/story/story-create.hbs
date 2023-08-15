@@ -1,0 +1,36 @@
+<div id="login-form">
+  <form action="/story/create" method="POST" enctype="multipart/form-data">
+  <div class="login-box">
+  <h2>CREATE STORY</h2>
+    <div class="user-box">
+      <input type="text" name="title" required="">
+      <label>title <span class = "mandatory">*</span></label>
+    </div>
+    <div class="user-box">
+      <input type="text" name="description" required="">
+      <label>description <span class = "mandatory">*</span></label>
+    </div>
+    <div class="user-box">
+        <input type="text" name="location" required="">
+        <label>Location <span class="mandatory">*</span></label>
+      </div>
+      <div id="map"></div>
+    <div class="user-box">
+      <input type="file" name="imgUrl" class="form-control-file"/>
+      <label>Story Image</label>
+<!-- MAP API Documentation -->
+     
+
+  <input type="hidden" id="latitude" name="latitude">
+    <input type="hidden" id="longitude" name="longitude">
+<!-- FINIDH -->
+      </div>
+   <button type="submit">CREATE</button>
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div> 
+</div>
+
+

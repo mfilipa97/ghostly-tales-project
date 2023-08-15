@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?key=AitQJ8JsonN-0MbHHMkSTEQDKeUDhdESxyA1xHXs9up40tT_uVV9AH_TW8u2R9uG"></script>
+
   </head>
 
   <body>
-    
 <div class="header">
  <div class="menu">
-  <svg class="line-top" width="750" height="15" viewbox="0,0 1000,20">
+  <svg class="line-top" width="1000" height="15" viewbox="0,0 1000,20">
    <line
     class="line-dash"
     x1="0"
@@ -22,12 +23,20 @@
     style="stroke: orange; stroke-width:2; stroke-linecap:round; stroke-dasharray: 180,1200; stroke-dashoffset: -35;"
    />
   </svg>
+  
   <ul>
    <li><a class ="home-link" href="/">Home</a></li>
    <li><a class="sign-link" href="/auth/signup">Sign In</a>
    <li><a class="signout-link" href="/auth/logout">Log out</a></li>
    <li><a class="sign-link" href="/auth/login">Log In</a></li>
    <li><a class="sign-link" href="/profile">Profile</a></li>
+   <li><a class="create-story" href="/story/create">Create a Story</a></li>~
+  <li><a class="story-list" href="/story/list">Stories</a></li>
+  </ul>
+  <ul>
+    
+
+
   </ul>
   <a class = "profile" href="/user.profile"></a>
   <svg class="line-bottom" width="750" height="30" viewbox="0,0 1000,40">
@@ -38,13 +47,31 @@
 
    <polygon class="lb" points="785,53 865,53 875,43 885,53 965,53" />
   </svg>
+  
  </div>
 </div>
 <!--<div class="content">
  <h1>Navigation Bar with Hover and Click effects</h1>
 </div>-->
     {{{body}}}
-    <script src="/js/script.js"></script>
+    
+    <script src='http://www.bing.com/api/maps/mapcontrol?callback=getMap' async></script>
+    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </body>
 
 </html>

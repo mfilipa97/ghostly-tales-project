@@ -10,23 +10,30 @@ const storySchema = new Schema({
         required: true
         },
     author: {
-        type: Schema.Types.ObjectId,
-        ref: "Users",
-        required: true
-    },
+        type: {},
+        },
     imgUrl: {
         type: String,
-        required: false
     },
     
     tags: {
         type: Array,
-        required: true
+        required: false
+
     },
     location: {
         type: Schema.Types.ObjectId,
         ref: 'locations'
-    }
+    },
+    latitude: Number, // Add latitude field
+    longitude: Number, // Add longitude field
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment',
+        }
+    ],
+
 });
 
 const Story = model("Story", storySchema);

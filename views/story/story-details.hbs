@@ -1,0 +1,41 @@
+<div>
+    <h2>SPECIFIC STORY</h2>
+    <h3>{{story.title}}</h3>
+    <h6>Author: {{story.author.username}}</h6>
+    <form method="POST" action="/story/{{story._id}}">
+        <input type="hidden" name="favorite" value="true">
+        <button type="submit">Favorite</button>
+    </form>
+    <p>{{story.description}}</p>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    {{#if userPermission}}
+    <a href="/story/{{story._id}}/edit">Edit Story</a>
+    <form action="/story/{{story._id}}/delete" method="POST">
+        <button>DELETE</button>
+    </form>
+    {{/if}}
+    
+</div>
+<!-- Review Section -->
+<h4>Leave a comment!</h4>
+<!-- Form to Create a Review -->
+<form action="/story/{{story._id}}" method="post">
+    <label for="content">New comment</label>
+    <textarea name="content" id="content" cols="30" rows="5"></textarea>
+    <button type="submit">Send</button>
+</form>
+<!-- End of the Form to Create a Review -->
+<br>
+<!-- Display all the Reviews of the Book that we're seeing -->
+    {{#each story.comments}}
+    <div>
+        <!-- Actually displaying the review -->
+        <p><span>By {{author.username}}</span>: {{content}}</p>
+        <!-- Deleting the Review -->
+ <!--        <form action="/story/{{story._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </div> -->
+
+
+

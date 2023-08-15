@@ -1,16 +1,61 @@
 <div>
-    <h2>{{userInSession.username}} Profile</h2>
+    <h2>{{foundUser.username}}'s Profile</h2>
     <div>
-        <form action="/profile" method="POST">
-        <label>
-            <input type="text" name="profileBio" value="{{userInSession.profileBio}}">
-            <label>Image:
-        <!-- This! -->
-          <input type="file" name="movie-cover-image" class="form-control-file" />
+        <form action="/profile/{{foundUser.username}}" method="post">
+        <label> <h3>Bio: </h3> 
+            <input type="text" name="profileBio" value="{{foundUser.profileBio}}">
         </label>
-            <h1>HELLO</h1>
+        <label>
+          <input type="file" name="movie-cover-image" class="form-control-file" />
+            <h1></h1>
         </label>
         <button> Save Changes</button>
         </form>
+    </div>
+</div>
+<div>
+    <h1>Favorites</h1>
+    <hr>
+    <div class="row">
+    {{#each foundUser.favorites}}
+        <div class="col-md-4 mb-5">
+        <div class="card" style="width: 18rem;">
+            <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
+            <div class="card-body">
+            <h5 class="card-title">TITLE: {{this.title}}</h5>
+            <p class="card-text">DESCRIPTION: {{this.description}}</p>
+            <p class="card-text">AUTHOR: {{this.author.username}}</p>
+            <a href="/story/{{this._id}}">Read it!</a>
+            <!--<a href="/stories/{{id}}/edit" class="btn btn-primary">Edit</a> -->
+            </div>
+        </div>
+        </div>
+    {{else}}
+        <p>No Favorites Yet</p>
+    {{/each}}
+    <hr/>
+    </div>
+</div>
+<div>
+    <h1>{{foundUser.username}}'s Stories</h1>
+    <hr>
+    <div class="row">
+    {{#each foundUser.userStories}}
+        <div class="col-md-4 mb-5">
+        <div class="card" style="width: 18rem;">
+            <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
+            <div class="card-body">
+            <h5 class="card-title">TITLE: {{this.title}}</h5>
+            <p class="card-text">DESCRIPTION: {{this.description}}</p>
+            <p class="card-text">AUTHOR: {{this.author.username}}</p>
+            <a href="/story/{{this._id}}">Check out the story</a>
+            <!--<a href="/stories/{{id}}/edit" class="btn btn-primary">Edit</a> -->
+            </div>
+        </div>
+        </div>
+    {{else}}
+        <p>No Favorites Yet</p>
+    {{/each}}
+    <hr/>
     </div>
 </div>
