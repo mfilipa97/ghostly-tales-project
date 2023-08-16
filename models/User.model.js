@@ -33,7 +33,7 @@ const userSchema = new Schema(
     },
     profileBio : {
       type: String,
-      default: " "
+      default: ""
     }
 
   },

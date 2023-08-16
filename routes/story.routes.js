@@ -9,7 +9,6 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const Story = require("../models/Story.model");
-const Comment = require("../models/Comment.model")
 
 // Grab fileUpLoader middleware from Cloudinary Configurations
 const fileUpLoader = require('../config/cloudinary.config');
@@ -72,9 +71,11 @@ router.get('/list', async (req,res)=>{
 // READ
 // GET Display Specific Story
 router.get('/:storyId', async (req, res)=>{
+
+    let liked = false;
     try{
     const {storyId}=req.params
-        let specificStory = await Story.findById({storyId});
+        let specificStory = await Story.findById(storyId);
     const {currentUser} = req.session;
     let userPermission = false;
 
@@ -88,6 +89,13 @@ router.get('/:storyId', async (req, res)=>{
         }
 
     });
+    
+    if (isLoggedIn && specificStory.likes.includes(currentUser._id)){
+        liked = true;
+    }
+    else{
+        liked = false;
+    }
 
     if (specificStory.author._id === currentUser._id){
         userPermission = true;
@@ -135,7 +143,7 @@ router.post('/:storyId', async (req, res)=>{
         await User.findByIdAndUpdate(currentUser._id, { $pull: { favorites: specificStory._id } });
     }
 
-    res.render('story/story-details', {story:specificStory, userPermission});
+    res.render('story/story-details', {story:specificStory, userPermission, currentUser});
 
     }
     catch(error){
@@ -231,47 +239,7 @@ router.post('/:storyId/delete',isLoggedIn, async (req, res)=>{
 });
 
 
-// COMMENTS
 
-// POST- Create comment from User Account
-
-router.post('/:storyId', isLoggedIn,async (req,res) => {
-    try{
-        const {storyId} = req.params;
-        let foundUser = await User.findById(req.session.currentUser._id);
-
-        const {content} = req.body;
-
-        const newComment = await Comment.create({content,author:foundUser._id});
-
-        // Update the Story with new comment that was created
-
-        const StoryUpdate = await Story.findByIdAndUpdate(storyId, {$push: {comments: newComment._id}});
-
-        res.redirect(`/story/${storyId}`)
-    }
-    catch(error){
-        console.log(error)
-    }
-
-})
-
-// // POST - Delete Comment
-// router.post('/:storyId/delete', async (req,res)=>{
-//     try{
-//         const {storyId} = req.params;
-//         const removedComment = await Comment.findByIdAndRemove(reviewId);
-
-//         await User.findByIdAndUpdate(removedReview.author, {$pull: {reviews: removedReview._id}});
-
-//         res.redirect('/books');
-
-//     }
-//     catch(error){
-//         console.log(error);
-//     }
-
-// });
 
 module.exports = router;
 

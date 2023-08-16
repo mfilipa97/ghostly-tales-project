@@ -6,7 +6,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 
 // GET to display user profile based on username
-router.get("/profile/:username", isLoggedIn, async (req, res)=>{
+router.get("/:username", isLoggedIn, async (req, res)=>{
 
     const {username} = req.params;
 
@@ -28,7 +28,7 @@ router.get("/profile/:username", isLoggedIn, async (req, res)=>{
 })
 
 // POST - change profile bio and pic if current user matches the profile
-router.post ("/profile/:username", isLoggedIn, async (req, res)=>{
+router.post ("/:username", isLoggedIn, async (req, res)=>{
 
     const {username} = req.params;
     const {profileBio,profilePicUrl} = req.body;
@@ -36,14 +36,16 @@ router.post ("/profile/:username", isLoggedIn, async (req, res)=>{
     let userPermission = false;
 
     try{
-      if (userProfile._id === userId){
+
+      const findUser = await User.findOne({username});
+      if (findUser._id === userId){
           userPermission = true;
       }
       else {
           userPermission = false;
       }
       const updateUser = await User.findByIdAndUpdate(userId, {profileBio, profilePicUrl}, {new:true});
-      res.redirect (`/profile/${userProfile.username}`);
+      res.redirect (`/profile/${username}`);
   
 
     }
