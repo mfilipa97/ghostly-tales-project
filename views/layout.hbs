@@ -18,7 +18,14 @@
                   <a class ="home-link" href="/"> <img src = " "></a>
                </div>
                <div class="menu">
+                
                   <ul>
+                    <li><div>
+                    <form action="/search" method="GET">
+                        <input type="text" name="query" placeholder="Search for Stories and Users!">
+                    <button type="submit">Search</button>
+                    </form>
+                  </div></li>
                      <li><a class ="home-link" href="/">About</a></li>
                      {{#if currentUser}}
                      <li><a class="create-story" href="/story/create">Create a Story</a></li>
