@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 // Grab models and middleware
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
@@ -15,13 +14,22 @@ const fileUpLoader = require('../config/cloudinary.config');
 // *ROUTES*
 // CRUD of Stories
 
-
-
 // Create
+
 // GET - Display Story create form
-router.get('/create',isLoggedIn, (req, res)=>{
-    let currentUser = req.session.currentUser;
-    res.render('story/story-create', currentUser)
+router.get('/create', isLoggedIn, async (req, res) => {
+    try {
+        let {currentUser} =req.session;
+       /*  let map;
+          const { Map } = await google.maps.importLibrary("maps");
+          map = new Map(document.getElementById("map"), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+          }); */
+        res.render('story/story-create', { currentUser /* map */ });
+    } catch (error) {
+        console.error('Error while creating Story form:', error);
+    }
 });
 
 // GET - Redirect User from form if not logged in
@@ -34,12 +42,12 @@ router.get('/create',isLoggedOut, (req, res)=>{
 router.post ('/create',fileUpLoader.single("imgUrl"),isLoggedIn, async (req,res) => {
   
    try {
-    const {title, description} = req.body;
+    const {title, description,address } = req.body;
    
     let foundUser = await User.findById(req.session.currentUser._id);
 
 
-    let createStory =  await Story.create({title, description, author:foundUser, imgUrl:req.file.path});
+    let createStory =  await Story.create({title, description, author:foundUser, imgUrl:req.file.path, address});
 
     let addStoryToUser = await User.findByIdAndUpdate(foundUser._id, { $addToSet: { userStories: createStory._id } })
 
@@ -188,10 +196,6 @@ router.get('/:storyId/edit', isLoggedIn,async (req,res)=>{
 
     console.log(storyAuthorId);
     console.log(currentUserId);
-
-
-
-
     if (storyAuthorId.equals(currentUserId)){
         res.render('story/story-edit', {story: specificStory})
     }

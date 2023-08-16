@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?key=AitQJ8JsonN-0MbHHMkSTEQDKeUDhdESxyA1xHXs9up40tT_uVV9AH_TW8u2R9uG"></script>
+    {{!-- <script src="/js/googleMaps.script.js"></script> --}}
+
 
   </head>
 
@@ -64,20 +65,14 @@
 <!--<div class="content">
  <h1>Navigation Bar with Hover and Click effects</h1>
 </div>-->
+
+<div>
+  <form action="/search" method="GET">
+      <input type="text" name="query" placeholder="Search for Stories and Users!">
+  <button type="submit">Search</button>
+  </form>
+</div>
     {{{body}}}
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
   </body>
 
