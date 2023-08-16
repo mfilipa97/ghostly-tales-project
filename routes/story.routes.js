@@ -180,11 +180,19 @@ router.post('/:storyId/like', async (req, res) => {
 // GET Edit Story (only if currentUser is author)
 router.get('/:storyId/edit', isLoggedIn,async (req,res)=>{
     try{
+
     const {storyId} = req.params;
     let specificStory = await Story.findById(storyId);
-    let {currentUser} = req.session;
+    let storyAuthorId = await specificStory.author._id;
+    let currentUserId = req.session.currentUser._id;
 
-    if (specificStory.author._id === currentUser._id){
+    console.log(storyAuthorId);
+    console.log(currentUserId);
+
+
+
+
+    if (storyAuthorId.equals(currentUserId)){
         res.render('story/story-edit', {story: specificStory})
     }
     else {

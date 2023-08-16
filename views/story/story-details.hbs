@@ -48,8 +48,10 @@
             <!-- Actually displaying the comments -->
             <p><span>By {{author.username}}</span>: {{content}}</p>
             <!-- Deleting the comment -->
-        <form action="/story/{{story._id}}/comment/delete/{{this._id}}" method="POST">
-                <button type="submit">Delete</button>
+             <form action="/story/{{../story._id}}/comment/delete/{{this._id}}" method="POST">
+                <input type="hidden" name="storyId" value="{{story._id}}">
+                <input type="hidden" name="commentId" value="{{this._id}}">
+                <button>Delete Comment</button>
             </form>
         </div>
         {{/each}}

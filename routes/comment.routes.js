@@ -39,13 +39,13 @@ router.post('/:storyId/comment/create', isLoggedIn,async (req,res) => {
 })
 
 // // POST - Delete Comment
-router.post('/:storyId/comment/delete/:commentId', async (req,res)=>{
+router.post('/:storyId/comment/delete/:commentId', isLoggedIn,async (req,res)=>{
     try{
         const {storyId, commentId} = req.params;
-        const removedComment = await Comment.findByIdAndRemove(commentId);
-        const commentUser = User.findOne( {comments: commentId});
+        const {_id} = req.session.currentUser;
+        await Comment.findByIdAndRemove(commentId);
 
-        await User.findByIdAndUpdate( commentUser, {$pull: {comments: commentId}});
+        await User.findByIdAndUpdate( _id, {$pull: {comments: commentId}});
 
         res.redirect(`/story/${storyId}`)
 

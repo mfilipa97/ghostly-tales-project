@@ -43,6 +43,7 @@ router.post ("/:username", isLoggedIn, async (req, res)=>{
       }
       else {
           userPermission = false;
+          return;
       }
       const updateUser = await User.findByIdAndUpdate(userId, {profileBio, profilePicUrl}, {new:true});
       res.redirect (`/profile/${username}`);
@@ -54,6 +55,36 @@ router.post ("/:username", isLoggedIn, async (req, res)=>{
     }
    
   });
+
+  // // POST - Delete Profile 4EVER
+
+router.post('/:username/delete', isLoggedIn,async (req,res)=>{
+  try{
+    let userPermission = false;
+    const {username} = req.params;
+    const currentUser = req.session.currentUser._id;
+    const findProfileUser = await User.findOne({username});
+
+    console.log(findProfileUser._id);
+    console.log(currentUser)
+
+    if (findProfileUser.equals(currentUser)){
+
+        userPermission = true;
+    }
+    else {
+        userPermission = false;
+          return;
+      }
+      await User.findByIdAndRemove(currentUser);
+      res.redirect(`/auth/logout`)
+
+  }
+  catch(error){
+      console.log(error);
+  }
+
+});
 
 
 
