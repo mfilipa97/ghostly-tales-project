@@ -26,12 +26,23 @@
   
   <ul>
    <li><a class ="home-link" href="/">Home</a></li>
-   <li><a class="sign-link" href="/auth/signup">Sign In</a>
-   <li><a class="signout-link" href="/auth/logout">Log out</a></li>
-   <li><a class="sign-link" href="/auth/login">Log In</a></li>
-   <li><a class="sign-link" href="/profile">Profile</a></li>
+   {{#if currentUser}}
    <li><a class="create-story" href="/story/create">Create a Story</a></li>~
-  <li><a class="story-list" href="/story/list">Stories</a></li>
+    <li><a class="story-list" href="/story/list">Stories</a></li>
+   <li><a class="sign-link" href="/profile">Profile</a></li>
+    <li><a class="signout-link" href="/auth/logout">Log out</a></li>
+
+   
+
+   {{else}}
+    <li><a class="create-story" href="/story/create">Create a Story</a></li>~
+    <li><a class="story-list" href="/story/list">Stories</a></li>
+    <li><a class="sign-link" href="/auth/login">Login</a></li>
+    <li><a class="sign-link" href="/auth/signup">Sign up</a>
+
+
+   {{/if}}
+  
   </ul>
   <ul>
     

@@ -12,7 +12,7 @@ router.get("/profile/:username", isLoggedIn, async (req, res)=>{
 
     try{
 
-      let foundUser = await User.findOne(username);
+      let foundUser = await User.findOne({username});
 
       await foundUser.populate ('userStories');
 

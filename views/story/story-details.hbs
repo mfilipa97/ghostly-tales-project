@@ -2,10 +2,16 @@
     <h2>SPECIFIC STORY</h2>
     <h3>{{story.title}}</h3>
     <h6>Author: {{story.author.username}}</h6>
+    <p>Likes: {{story.likes.length}}</p>
     <form method="POST" action="/story/{{story._id}}">
         <input type="hidden" name="favorite" value="true">
         <button type="submit">Favorite</button>
     </form>
+    <form method="POST" action="/story/{{story._id}}/like">
+    <button type="submit" id="likeButton" class="{{#if story.likes.includes(currentUser._id)}}liked{{/if}}">
+        {{#if story.likes.includes(currentUser._id)}}Liked{{else}}Like{{/if}}
+    </button>
+</form>
     <p>{{story.description}}</p>
     <div id="map" style="width: 100%; height: 400px;"></div>
     {{#if userPermission}}

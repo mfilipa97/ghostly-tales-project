@@ -9,7 +9,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 /* GET home page */
 router.get("/", (req, res, next) => {
   console.log("current user is: ",req.session.currentUser);
-  let {currentUser} =req.session;
+  let {currentUser} = req.session;
   res.render("index",{currentUser});
 });
 

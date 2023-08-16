@@ -74,7 +74,7 @@ router.get('/list', async (req,res)=>{
 router.get('/:storyId', async (req, res)=>{
     try{
     const {storyId}=req.params
-        let specificStory = await Story.findById(storyId);
+        let specificStory = await Story.findById({storyId});
     const {currentUser} = req.session;
     let userPermission = false;
 
@@ -143,6 +143,29 @@ router.post('/:storyId', async (req, res)=>{
 
     }
 
+});
+
+// POST - Add a Like to the Story
+router.post('/:storyId/like', async (req, res) => {
+    try {
+        const { storyId } = req.params;
+        const { currentUser } = req.session;
+
+        const specificStory = await Story.findById(storyId);
+
+        if (!specificStory.likes.includes(currentUser._id)) {
+            specificStory.likes.push(currentUser._id);
+        } else {
+            const index = specificStory.likes.indexOf(currentUser._id);
+            specificStory.likes.splice(index, 1);
+        }
+
+        await specificStory.save();
+
+        res.redirect(`/story/${storyId}`);
+    } catch (error) {
+        console.log("caught an error while toggling like: ", error);
+    }
 });
 
 
