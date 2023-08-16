@@ -1,8 +1,6 @@
 // Grab Express and browser
 const express = require('express');
 const router = express.Router();
-const bingMapsKey = process.env.BING_MAPS_API_KEY; // Replace with your actual API key
-const bingmaps = require('bingmaps');
 
 // Grab models and middleware
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -16,13 +14,16 @@ const Comment = require("../models/Comment.model")
 
 // POST- Create comment from User Account
 
-router.post('/:storyId', isLoggedIn,async (req,res) => {
+router.post('/:storyId/comment/create', isLoggedIn,async (req,res) => {
     try{
         const {storyId} = req.params;
         const {content} = req.body;
 
+        console.log ("content of comment is: ", content);
         let foundUser = await User.findById(req.session.currentUser._id);
-        const newComment = await Comment.create({content,author:foundUser._id});
+        const newComment = await Comment.create({content,author:foundUser});
+        console.log ("new comment is: ", newComment);
+
 
         // Update the Story with new comment that was created
 
@@ -38,20 +39,21 @@ router.post('/:storyId', isLoggedIn,async (req,res) => {
 })
 
 // // POST - Delete Comment
-// router.post('/:storyId/delete', async (req,res)=>{
-//     try{
-//         const {storyId} = req.params;
-//         const removedComment = await Comment.findByIdAndRemove(reviewId);
+router.post('/:storyId/comment/delete/:commentId', async (req,res)=>{
+    try{
+        const {storyId, commentId} = req.params;
+        const removedComment = await Comment.findByIdAndRemove(commentId);
+        const commentUser = User.findOne( {comments: commentId});
 
-//         await User.findByIdAndUpdate(removedReview.author, {$pull: {reviews: removedReview._id}});
+        await User.findByIdAndUpdate( commentUser, {$pull: {comments: commentId}});
 
-//         res.redirect('/books');
+        res.redirect(`/story/${storyId}`)
 
-//     }
-//     catch(error){
-//         console.log(error);
-//     }
+    }
+    catch(error){
+        console.log(error);
+    }
 
-// });
+});
 
 module.exports = router;

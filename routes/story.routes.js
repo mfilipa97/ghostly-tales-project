@@ -1,8 +1,7 @@
 // Grab Express and browser
 const express = require('express');
 const router = express.Router();
-const bingMapsKey = process.env.BING_MAPS_API_KEY; // Replace with your actual API key
-const bingmaps = require('bingmaps');
+
 
 // Grab models and middleware
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -35,7 +34,7 @@ router.get('/create',isLoggedOut, (req, res)=>{
 router.post ('/create',fileUpLoader.single("imgUrl"),isLoggedIn, async (req,res) => {
   
    try {
-    const {title, description, author, latitude, longitude} = req.body;
+    const {title, description} = req.body;
    
     let foundUser = await User.findById(req.session.currentUser._id);
 

@@ -3,10 +3,12 @@
     <h3>{{story.title}}</h3>
     <h6>Author: {{story.author.username}}</h6>
     <p>Likes: {{story.likes.length}}</p>
+
     <form method="POST" action="/story/{{story._id}}">
         <input type="hidden" name="favorite" value="true">
         <button type="submit">Favorite</button>
     </form>
+
     <form method="POST" action="/story/{{story._id}}/like">
     <button type="submit" id="likeButton">
         {{#if liked}}
@@ -16,38 +18,43 @@
         {{/if}}
     </button>
     </form>
+
     <p>{{story.description}}</p>
-    <div id="map" style="width: 100%; height: 400px;"></div>
     {{#if userPermission}}
     <a href="/story/{{story._id}}/edit">Edit Story</a>
     <form action="/story/{{story._id}}/delete" method="POST">
         <button>DELETE</button>
     </form>
     {{/if}}
-    
 </div>
 <div>
     <!-- Comment Section -->
-    <h4>Leave a comment!</h4>
-    <!-- Form to Create a comment -->
-    <form action="/story/{{story._id}}" method="post">
-        <label for="content">New comment</label>
-        <textarea name="content" id="content" cols="30" rows="5"></textarea>
-        <button type="submit">Send</button>
-    </form>
-    <!-- End of the Form to Create a Comment -->
-    <br>
-    <!-- Display all the comments of the Story that we're seeing -->
+    <h2>Comment Section</h2>
+    <div>
+        <h3>Leave a comment</h3>
+        <!-- Form to Create a comment -->
+        <form action="/story/{{story._id}}/comment/create" method="POST">
+            <label>New comment</label>
+            <textarea name="content" cols="30" rows="5"></textarea>
+            <button>Send</button>
+        </form>
+        <!-- End of the Form to Create a Comment -->
+        <br>
+        <!-- Display all the comments of the Story that we're seeing -->
+    </div>
+    <div>
         {{#each story.comments}}
         <div>
             <!-- Actually displaying the comments -->
             <p><span>By {{author.username}}</span>: {{content}}</p>
             <!-- Deleting the comment -->
-        <form action="/story/{{story._id}}/delete" method="post">
+        <form action="/story/{{story._id}}/comment/delete/{{this._id}}" method="POST">
                 <button type="submit">Delete</button>
             </form>
         </div>
         {{/each}}
+    </div>
+
 </div>
 
 
