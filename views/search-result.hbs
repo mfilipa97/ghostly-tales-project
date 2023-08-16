@@ -1,0 +1,20 @@
+<div>
+    <div>
+        <h1>USERS</h1>
+        {{#each users}}
+        <div>
+            <img src="{{this.imgUrl}}" alt="{{this.username}}">
+            <h1>{{this.username}}</h1>
+        </div>
+        {{/each}}
+    </div>
+    <div>
+        <h1>STORIES</h1>
+        {{#each stories}}
+        <div>
+            <img src="{{this.imgUrl}}" alt="{{this.username}}">
+            <h1>{{this.title}}</h1>
+        </div>
+        {{/each}}
+    </div>
+</div>

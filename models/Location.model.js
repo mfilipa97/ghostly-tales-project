@@ -4,11 +4,16 @@ const locationSchema = new Schema ({
     name: {
         type: String,
         required: true
-        },
-    location: {
-        type: String,
-        required: true
     },
+
+    location:{
+         type: {
+             type: String 
+            }, 
+        coordinates: [Number] 
+        
+    },
+    
     description: {
         type: String,
         required: true
@@ -22,6 +27,9 @@ const locationSchema = new Schema ({
         ref: "stories"  
     }],
 });
+
+locationSchema.index({ location: '2dsphere' });
+
 
 const Location = model('Location', locationSchema);
 

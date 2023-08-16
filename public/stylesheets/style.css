@@ -255,6 +255,11 @@ nav ul li a {
   color: red;
 }
 
+  #map {
+    height: 500px;
+    width: 500px;
+
+  }
 
 /*Card*/
   .card-img-top {
@@ -262,7 +267,6 @@ nav ul li a {
     height: 200px; /* Set your desired height */
     object-fit:cover /* Maintain aspect ratio while covering the container */
   }
-
 
 .card {
   position: relative;

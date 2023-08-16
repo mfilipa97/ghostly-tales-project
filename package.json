@@ -7,6 +7,7 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.35",
     "bcrypt": "^5.1.0",
     "bingmaps": "^2.0.3",
     "cloudinary": "^1.40.0",
