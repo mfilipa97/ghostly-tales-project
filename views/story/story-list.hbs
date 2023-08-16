@@ -1,21 +1,24 @@
-<h1>Stories</h1>
-<div class="container-fluid">
-      <div class="card-group m-2">
-      {{#each stories}}
-      <div class="card-md-4">
-        <div class="card-body text-light"> 
-          <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
-          <h2 class="card-title fw-bold">Title: {{this.title}}</h2>
-          <p class="card-text">Description: {{this.description}}</p>
-          <h6 class="card-text">Author: {{this.author.username}} </h6>
+  <h1>Stories</h1>
+<hr>
+<div class="row d-flex justify-content-center" >
+  {{#each stories}}
+    <div class="col-md-3 mb-3 mx-5">
+      <div class="card" style="width: 18rem;">
+        <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
+        <div class="card-body text-light">
+          <h5 class="card-title fw-bold">{{this.title}}</h5>
+          <p class="card-text"><span>Description:</span> {{this.description}}</span></p>
+          <h6 class="card-text"><span>Author:</span> {{this.author.username}} </h6>
           <a href="/story/{{this._id}}" class="btn-info btn-primary btn-transparent">Check out the story</a>
           <a href="/story/{{this._id}}/edit" class="btn-info btn-primary btn-transparent">Edit</a>
         </div>
       </div>
-      {{/each}}
     </div>
-  </div>
-  </div>
+  {{else}}
+    <p>There are no movies yet!</p>
+  {{/each}}
+  <hr />
+</div>
 
 
   

@@ -2,109 +2,130 @@ html {
   height: 100%;
 }
 body {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
   background: linear-gradient(#142e5e, #24282e);
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh; /* Ensure body covers at least viewport height */
+}
+/*Navvar*/
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-/* NavBar start */
-@import url("https://fonts.googleapis.com/css?family=Lato");
-
-html {
-	height: 100%;
+body {
+  font-family: "Helvetica Neue",sans-serif;
+  font-weight: lighter;
 }
 
-/*body {
-	height: 100%;
-	background-color: #9387ab;
-	font: 400 10px "Lato", sans-serif;
-	text-align: center;
-}*/
-
-.header {
-	width: 100%;
-	height: 75px;
-	background: #17141d;
-	opacity: 0.95;
-	overflow: hidden;
-	-webkit-box-shadow: #333 1px 3px 4px;
-	-moz-box-shadow: #333 1px 3px 4px;
-	box-shadow: #333 1px 3px 4px;
+header {
+  width: 100%;
+  height: 100vh;
+  background: url(https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Beautiful-Full-HD-Wallpaper-Download-Free-PIC-WPE0010098.jpg) no-repeat 50% 50%;
+  background-size: cover;
 }
 
 .content {
-	width: 100%;
-	height: calc(100% - 75px);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	background-color: #9387ab;
-}
-h1 {
-	letter-spacing: 4px;
-	padding: 1em;
-	color: white;
-	background-color: #17141d;
-	opacity: 0.8;
+  width: 94%;
+  margin: 4em auto;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: justify;
 }
 
-svg.line-top {
-	width: 100%;
-	background-color: #17141d;
-}
-svg.line-bottom {
-	width: 100%;
-}
-.menu {
-	width: 750px;
-	margin: 0 auto;
-}
-ul {
-	padding: 0;
-	margin: 0;
+.logo {
+  line-height: 60px;
+  position: fixed;
+  float: left;
+  margin: 16px 46px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
-ul li {
-	margin: 0;
-	padding: 10px 0 10px 0;
-	width: 25%;
-	height: 10px;
-	text-align: center;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: white;
-	cursor: pointer;
-	display: inline-block;
-	letter-spacing: 3.5px;
-	transition: all 0.5s ease-out;
+nav {
+  position: fixed;
+  width: 100%;
+  line-height: 60px;
 }
 
-li.active {
-	color: orange;
-	transform: scale(1.1);
+nav ul {
+  line-height: 60px;
+  list-style: none;
+  background: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  color: #fff;
+  padding: 0;
+  text-align: right;
+  margin: 0;
+  padding-right: 40px;
+  transition: 1s;
 }
 
-polygon {
-	stroke-width: 2px;
-	stroke: orange;
-	fill: orange;
+nav.black ul {
+  background: #000;
 }
 
-@media (max-device-width: 991px) {
-	.header {
-		height: 64px;
-	}
+nav ul li {
+  display: inline-block;
+  padding: 16px 40px;;
+}
 
-	body {
-		font-size: 0.4em;
-	}
-	.content {
-		height: calc(100% - 64px);
-	}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.menu-icon {
+  line-height: 60px;
+  width: 100%;
+  background: #000;
+  text-align: right;
+  box-sizing: border-box;
+  padding: 15px 24px;
+  cursor: pointer;
+  color: #fff;
+  display: none;
+}
+
+@media(max-width: 786px) {
+
+  .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+  }
+
+  nav ul {
+        max-height: 0px;
+        background: #000;
+  }
+
+  nav.black ul {
+        background: #000;
+  }
+
+  .showing {
+        max-height: 34em;
+  }
+
+  nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+  }
+
+  .menu-icon {
+        display: block;
+  }
+
 }
 /* NavBar ending */
 
@@ -236,13 +257,10 @@ polygon {
 
 
 /*Card*/
-  .card-group {
-    column-count: 2;
-  }
   .card-img-top {
     width: 200px; /* Set your desired width */
     height: 200px; /* Set your desired height */
-    object-fit:contain /* Maintain aspect ratio while covering the container */
+    object-fit:cover /* Maintain aspect ratio while covering the container */
   }
 
 
@@ -257,14 +275,14 @@ polygon {
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  color: #e8e8e8;
-  background: #212121;
+  background: #1d1c1c;
   border: 2px solid #313131;
   border-radius: 10px;
   padding: 32px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  color: white;
 }
 
 .card:hover {
@@ -273,38 +291,200 @@ polygon {
 }
 
 .btn {
-  padding: 10px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding-left: 33px;
+ padding-right: 33px;
+ padding-bottom: 16px;
+ padding-top: 16px;
+ border-radius: 9px;
+ background:  #6cb94d;
+ border: none;
+ font-family: inherit;
+ text-align: center;
+ cursor: pointer;
+ transition: 0.4s;
+ text-decoration: none
 }
 
 .btn-info {
-  color: #e8e8e8;
-  background: #4aa15000;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-radius: 9px;
+  background: #6cb94d;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
   text-decoration: none;
-  text-decoration: underline #6ab96f;
   font-weight: bold;
+  color: white;
  
 }
 
 .btn-info:hover {
- border-radius: 2px;
- background: #6ab96f;
-  color: #e8e8e8;
-  box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
-  border-color: #0974f1;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
-  padding: 2px;
-  font-weight: bold;
+  box-shadow: 7px 5px 56px -14px #C3D900;
 
 }
 
 .btn:active {
-  box-shadow: none;
+
+  transform: scale(0.97);
+ box-shadow: 7px 5px 56px -10px #C3D900;
+}
+span{
+  color:#6cb94d;
+}
+span:hover{
+  text-shadow: 7px 5px 56px -14px #C3D900;
 }
 
 /* card end */
+
+.delete-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 11h; /* Adjust the height if needed */
+}
+
+
+/* Profile Updates */
+
+/*.profile-box {
+  width: 400px;
+  margin-left: 250px;
+  margin-top: 100px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #6b03f4b7;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #6b03f4b7;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #6b03f4b7,
+              0 0 25px #6b03f4b7,
+              0 0 50px #6b03f4b7,
+              0 0 100px #6b03f4b7;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+/* Sign up form end */
+/*
+.mandatory{
+  color: red;
+}*/

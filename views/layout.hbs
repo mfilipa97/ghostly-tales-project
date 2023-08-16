@@ -8,61 +8,38 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?key=AitQJ8JsonN-0MbHHMkSTEQDKeUDhdESxyA1xHXs9up40tT_uVV9AH_TW8u2R9uG"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <body>
+      <div class="wrapper">
+         <header>
+            <nav>
+               <div class="menu-icon">
+                  <i class="fa fa-bars fa-2x"></i>
+               </div>
+               <div class="logo">
+                  <a class ="home-link" href="/"> <img src = " "></a>
+               </div>
+               <div class="menu">
+                  <ul>
+                     <li><a class ="home-link" href="/">About</a></li>
+                     {{#if currentUser}}
+                     <li><a class="create-story" href="/story/create">Create a Story</a></li>
+                     <li><a class="story-list" href="/story/list">Stories</a></li>
+                     <li><a class="sign-link" href="/profile/{{currentUser.username}}">Profile</a></li>
+                     <li><a class="signout-link" href="/auth/logout">Log Out</a></li>
 
-
-
-  </head>
-
-  <body>
-<div class="header">
- <div class="menu">
-  <svg class="line-top" width="1000" height="15" viewbox="0,0 1000,20">
-   <line
-    class="line-dash"
-    x1="0"
-    y1="15"
-    x2="1000"
-    y2="15"
-    style="stroke: orange; stroke-width:2; stroke-linecap:round; stroke-dasharray: 180,1200; stroke-dashoffset: -35;"
-   />
-  </svg>
-  
-  <ul>
-   <li><a class ="home-link" href="/">Home</a></li>
-   {{#if currentUser}}
-   <li><a class="create-story" href="/story/create">Create a Story</a></li>~
-    <li><a class="story-list" href="/story/list">Stories</a></li>
-   <li><a class="sign-link" href="/profile/{{currentUser.username}}">Profile</a></li>
-    <li><a class="signout-link" href="/auth/logout">Log out</a></li>
-
-   
-
-   {{else}}
-    <li><a class="create-story" href="/story/create">Create a Story</a></li>~
+                     {{else}}
     <li><a class="story-list" href="/story/list">Stories</a></li>
     <li><a class="sign-link" href="/auth/login">Login</a></li>
     <li><a class="sign-link" href="/auth/signup">Sign up</a>
-
-
    {{/if}}
-  
-  </ul>
-  <a class = "profile" href="/user.profile"></a>
-  <svg class="line-bottom" width="750" height="30" viewbox="0,0 1000,40">
-   <polygon class="lb" points="35,53 115,53 125,43 135,53 215,53" />
-   <polygon class="lb" points="285,53 365,53 375,43 385,53 465,53" />
-
-   <polygon class="lb" points="535,53 615,53 625,43 635,53 715,53" />
-
-   <polygon class="lb" points="785,53 865,53 875,43 885,53 965,53" />
-  </svg>
-  
- </div>
-</div>
-<!--<div class="content">
- <h1>Navigation Bar with Hover and Click effects</h1>
-</div>-->
-    {{{body}}}
+                  </ul>
+               </div>
+            </nav>
+         </header>
+         <div class="content">
+         </div>
+      </div>
+      {{{body}}}
     
 
 
@@ -76,7 +53,5 @@
 
 
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  </body>
-
+   </body>
 </html>

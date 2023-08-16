@@ -2,30 +2,33 @@
     <h2>{{foundUser.username}}'s Profile</h2>
     <div>
         <form action="/profile/{{foundUser.username}}" method="post">
-        <label> <h3>Bio: </h3> 
-            <input type="text" name="profileBio" value="{{foundUser.profileBio}}">
+        <label> 
+            <div class="profile-box" >
+            <h3>Bio: </h3> 
+            <input type="text" name="profileBio" class="inputbox" value="{{foundUser.profileBio}}">
         </label>
         <label>
           <input type="file" name="movie-cover-image" class="form-control-file" />
-            <h1></h1>
+
         </label>
         <button> Save Changes</button>
         </form>
     </div>
 </div>
+</div>
 <div>
     <h1>Favorites</h1>
     <hr>
-    <div class="row">
+    <div class="row d-flex justify-content-center">
     {{#each foundUser.favorites}}
-        <div class="col-md-4 mb-5">
+        <div class="col-md-3 mb-3 mx-5">
         <div class="card" style="width: 18rem;">
             <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
-            <div class="card-body">
-            <h5 class="card-title">TITLE: {{this.title}}</h5>
-            <p class="card-text">DESCRIPTION: {{this.description}}</p>
-            <p class="card-text">AUTHOR: {{this.author.username}}</p>
-            <a href="/story/{{this._id}}">Read it!</a>
+            <div class="card-body text-light">
+            <h5 class="card-title"><span>TITLE:</span> {{this.title}}</h5>
+            <p class="card-text"><span>Description:</span> {{this.description}}</span></p>
+          <h6 class="card-text"><span>Author:</span> {{this.author.username}} </h6>
+            <a href="/story/{{this._id}}"class="btn-info btn-primary btn-transparent">Read it!</a>
             <!--<a href="/stories/{{id}}/edit" class="btn btn-primary">Edit</a> -->
             </div>
         </div>
@@ -39,16 +42,16 @@
 <div>
     <h1>{{foundUser.username}}'s Stories</h1>
     <hr>
-    <div class="row">
+    <div class="row d-flex justify-content-center" >
     {{#each foundUser.userStories}}
-        <div class="col-md-4 mb-5">
+        <div class="col-md-3 mb-3 mx-5">
         <div class="card" style="width: 18rem;">
             <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
-            <div class="card-body">
-            <h5 class="card-title">TITLE: {{this.title}}</h5>
-            <p class="card-text">DESCRIPTION: {{this.description}}</p>
-            <p class="card-text">AUTHOR: {{this.author.username}}</p>
-            <a href="/story/{{this._id}}">Check out the story</a>
+            <div class="card-body text-white">
+            <h5 class="card-title fw-bold"><span>TITLE:</span> {{this.title}}</h5>
+            <p class="card-text"><span>Description:</span> {{this.description}}</p>
+            <p class="card-text"><span>Author:</span> {{this.author.username}}</p>
+            <a href="/story/{{this._id}}" class="btn-info btn-primary btn-transparent">Check out the story</a>
             <!--<a href="/stories/{{id}}/edit" class="btn btn-primary">Edit</a> -->
             </div>
         </div>
@@ -60,11 +63,11 @@
     </div>
 </div>
 
-<div>
+<div class="delete-section">
      <h2>Delete Profile?</h2>
     <div>
         <form action="/profile/{{foundUser.username}}/delete" method="post">
-        <button>Delete</button>
+        <button class="btn-info">Delete</button>
         </form>
     </div>
 </div>
