@@ -514,7 +514,7 @@ nav ul li a {
   background: rgba(0, 0, 0, 0.344);
 }
 .weather-card .bottom {
-  padding: 0 30px;
+  padding: 0 15px;
   background: #27323c;
 }
 .weather-card .bottom .wrapper .forecast {
@@ -735,15 +735,7 @@ nav ul li a {
   }
 }
 
-.user-profile{
-  margin-left: 1vh;
-  margin-top: 150px;
 
-  width: 96vw;
-  height: 86vh;
-  
-  
-}
 
 @keyframes btn-anim4 {
   0% {
@@ -868,4 +860,66 @@ nav ul li a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.bg {
+  background-color: white;
+}
+
+.user-profile{
+  margin-left: 2vh;
+  margin-bottom: 2vh;
+  margin-top: 150px;
+  width: 94vw;
+  height: 86vh;
+  
+}
+
+.story-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  padding-top: 10px;
+  font-family:'Poppins', sans-serif;
+}
+
+.story-card-content h3 {
+  margin: 0;
+  width: 250px;
+
+  font-weight: 500;
+}
+
+.story-card-content h6 {
+  margin: 0;
+  font-weight: 100;
+  width: 200px;
+  line-height: 35px;
+}
+.story-card-text {
+  text-align: left;
+  padding-top: 10px;
+  padding-right: 150px;
+  width: 100%;
+
+}
+
+.story-card-user {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  justify-content: center;
+  padding-top: 15px;
+
+
+}
+
+.story-card-user img {
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
 }

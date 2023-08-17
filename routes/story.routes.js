@@ -45,12 +45,15 @@ router.post ('/create',fileUpLoader.single("imgUrl"),isLoggedIn, async (req,res)
 
     if (imgUrl === undefined){
     let createStory =  await Story.create({title, description, author:foundUser});
+    let addStoryToUser = await User.findByIdAndUpdate(foundUser._id, { $addToSet: { userStories: createStory._id } })
+
     }
     else{
     let createStory =  await Story.create({title, description, author:foundUser, imgUrl});
-    }
-
     let addStoryToUser = await User.findByIdAndUpdate(foundUser._id, { $addToSet: { userStories: createStory._id } })
+
+    };
+
 
     res.redirect ('/story/list');
     }
@@ -88,6 +91,8 @@ router.get('/:storyId', async (req, res)=>{
         let specificStory = await Story.findById(storyId);
     const {currentUser} = req.session;
     let userPermission = false;
+    let storyAuthorId = await specificStory.author._id;
+    let currentUserId = currentUser._id;
 
     await specificStory.populate("comments author")
 
@@ -106,8 +111,7 @@ router.get('/:storyId', async (req, res)=>{
     else{
         liked = false;
     }
-
-    if (specificStory.author._id === currentUser._id){
+    if (storyAuthorId.equals(currentUserId)){
         userPermission = true;
         res.render('story/story-details', {story:specificStory, userPermission, currentUser});
 
@@ -200,11 +204,11 @@ router.get('/:storyId/edit', isLoggedIn,async (req,res)=>{
     const {storyId} = req.params;
     let specificStory = await Story.findById(storyId);
     let storyAuthorId = await specificStory.author._id;
-    let currentUser = req.session.currentUser;
+    let currentUserId = req.session.currentUser._id;
 
     console.log(storyAuthorId);
     console.log(currentUserId);
-    if (storyAuthorId.equals(currentUser._Id)){
+    if (storyAuthorId.equals(currentUserId)){
         res.render('story/story-edit', {story: specificStory, currentUser})
     }
     else {
