@@ -4,8 +4,8 @@
 	<div class="row">
     {{#each stories}}
 		<div class="col">
-			<div class="weather-card one">
-				<div class="top"style="background-image:url('{{this.imgUrl}}");>
+			<div class="weather-card one" style="width: 18rem;">
+				<div class="top"style="background-image:url('{{this.imgUrl}}">
           
 					<div class="wrapper">
 						<div class="mynav">
@@ -20,8 +20,8 @@
 				</div>
 				<div class="bottom">
 					<div class="wrapper">
-            <div><h3 class="heading"><span class="list-names">Title:</span> {{this.title}}</h3>
-						<h3 class="location"><span class="list-names">Autor:</span> {{this.author.username}}</h3></div>
+            <div><h3 class="user-tags">{{this.title}}</h3>
+						<h5 class="user-tags">{{this.author.username}}</h5></div>
 						<ul class="forecast">	
 							<li class="active">
 								<a href="/story/{{this._id}}" class="underlines">Check out the story</a>
