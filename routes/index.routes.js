@@ -31,8 +31,10 @@ router.get("/", (req, res, next) => {
 });
 
 router.get('/about', (req,res)=>{
+  let {currentUser} = req.session;
 
-  res.render("about-us");
+
+  res.render("about-us", {currentUser});
 })
 
 

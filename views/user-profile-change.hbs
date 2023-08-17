@@ -3,31 +3,36 @@
     <div class="bg  rounded ">
       <div class="px-4 pt-0 pb-4 cover">
         <div class="media align-items-end profile-head">
+          <form action="/profile/{{currentUser.username}}/edit" method="POST">
           <div class="d-flex flex-column">
-            <img src="{{foundUser.profilePicUrl}}" alt="{{foundUser.username}}" width="130" class="rounded mb-2 img-thumbnail">
+
+            <img src="{{currentUser.profilePicUrl}}" alt="{{currentUser.username}}" width="130" class="rounded mb-2 img-thumbnail">
+            <p>New Profile Pic?</p>
+            <input type="file" name="profilePicUrl" class="form-control-file">
+
           </div>
           <div class="media-body mb-5 text-black">
-            <h4 class="mt-0 mb-0">{{foundUser.username}}</h4>
+            <h4 class="mt-0 mb-0">{{currentUser.username}}</h4>
           </div>
           <div>
-            <form action="/profile/{{foundUser.username}}/delete" method="post">
+            <form action="/profile/{{currentUser.username}}/delete" method="post">
             <button class="btn btn-outline-dark btn-sm btn-block" width="130">Delete Profile</button>
             </form>
-            <a href="/profile/{{foundUser.username}}/edit" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
+            <button class="btn btn-outline-dark btn-sm btn-block"> Save Changes</button>
           </div>
         </div>
       </div>
       <div class="bg-light p-4 d-flex justify-content-end text-center">
         <ul class="list-inline mb-0">
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">{{foundUser.userStories.length}}</h5>
+            <h5 class="font-weight-bold mb-0 d-block">{{currentUser.userStories.length}}</h5>
             <small class="text-muted">
               <i class="fas fa-image mr-1"></i>Written
               Stories
             </small>
           </li>
           <li class="list-inline-item">
-            <h5 class="font-weight-bold mb-0 d-block">{{foundUser.favorites.length}}</h5>
+            <h5 class="font-weight-bold mb-0 d-block">{{currentUser.favorites.length}}</h5>
             <small class="text-muted">
               <i class="fas fa-user mr-1"></i>Favorites
             </small>
@@ -37,7 +42,8 @@
       <div class="px-4 py-3">
         <h5 class="mb-0">About</h5>
         <div class="p-4 rounded shadow-sm bg-light">
-          <p class="font-italic mb-0">{{foundUser.profileBio}}</p>
+        <input type="text" name="description" required=""  class="font-italic mb-0" value="{{currentUser.profileBio}}">
+      </form>
         </div>
       </div>
       <div class="py-4 px-4">
@@ -46,7 +52,7 @@
           <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
         <div class="row">
-        {{#each foundUser.userStories}}
+        {{#each currentUser.userStories}}
         <div class="col-md-3 mb-3 mx-5">
         <div class="card" style="width: 18rem;">
             <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
@@ -70,7 +76,7 @@
           <a href="#" class="btn btn-link text-muted">Show all</a>
         </div>
         <div class="row">
-       {{#each foundUser.favorites}}
+       {{#each currentUser.favorites}}
         <div class="col-md-3 mb-3 mx-5">
         <div class="card" style="width: 18rem;">
             <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
