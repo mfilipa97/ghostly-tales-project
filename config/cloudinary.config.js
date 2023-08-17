@@ -17,7 +17,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary,
     params: {
-        allowed_formats : ['jpg', 'png', 'gif'],
+        allowed_formats : ['jpg', 'png', 'gif', 'svg'],
         folder: 'ghostly-tales'
     }
 });

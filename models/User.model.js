@@ -30,6 +30,7 @@ const userSchema = new Schema(
     }],
     profilePicUrl: {
       type: String,
+      default: "https://res.cloudinary.com/ghostly/image/upload/v1692265256/ghostly-tales/Sem-T%C3%ADtulo-1_gub7tk.gif"
     },
     profileBio : {
       type: String,

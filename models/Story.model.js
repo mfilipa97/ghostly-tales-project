@@ -14,6 +14,7 @@ const storySchema = new Schema({
         },
     imgUrl: {
         type: String,
+        default: "https://res.cloudinary.com/ghostly/image/upload/v1692265458/ghostly-tales/story-default-image_hjbare.jpg"
     },
     
     tags: {

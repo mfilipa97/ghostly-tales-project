@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 
+
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 1vh;
+  position: absolute;
+  z-index: 100;
+  right: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,31 +32,61 @@ body, html {
   padding: 0;
 }
 
+
 /* Apply background image */
 body {
-  background-image: url('https://res.cloudinary.com/ghostly/image/upload/v1692265458/ghostly-tales/story-default-image_hjbare.jpg');
-  background-size: cover; /* Adjust as needed */
+  background-color: #11c160;
   background-repeat: no-repeat;
   background-position: center center;
-  margin: 0; /* Remove default margin */  
+}
+
+.background-video{
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;
+  width:100%; 
+  height:100vh;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(30%);
+  
+
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%; 
+  height:100vh;
+  background-color: rgb(0, 0, 0); /* Adjust opacity and color as needed */
+  z-index:10;
+
 }
 
 /* Apply margin around the page content */
 .page-container {
+  padding: 0;
   background-image: url("https://res.cloudinary.com/ghostly/image/upload/v1692266170/ghostly-tales/land-page-background_rdhtwq.png") ;
-  background-size: auto; /* Adjust as needed */
+  background-size:cover; /* Adjust as needed */
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: bottom center;
   border-radius: 10px;
   background-attachment: fixed;
   height: 96vh;
   margin: 2vh;
-  padding: 0;
+  width: 97vw;
   position: relative;
   font-family:'Poppins', sans-serif;
   overflow-y: scroll;
   z-index: 0;
-  transition: opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  height: 114px;
 }
 
 
@@ -82,9 +116,10 @@ body {
 
 /* Search */ 
 .invisible-input {
-  border:rgb(161, 164, 162);
+  border:rgb(51, 51, 51);
   background-color: rgba(255, 255, 255, 0.014);
   color: white;
+  width: 300px
 }
 
 /* Search Button */
@@ -143,7 +178,7 @@ body {
 }
 .menu {
   --primary-color: #ffffff;
-  --hovered-color: #83c847;
+  --hovered-color: rgb(241, 0, 0);
   font-weight: 100;
   gap: 0.5rem;
   align-items: center;
@@ -203,10 +238,19 @@ body {
 }
 
 nav {
-  width: 100%;
+  background-image: url("https://res.cloudinary.com/ghostly/image/upload/v1692266170/ghostly-tales/land-page-background_rdhtwq.png") ;
+  background-size: cover; /* Adjust as needed */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;  
+  width: 97vw;
+  border-radius: 10px 10px 0px 0px; 
   line-height: 60px;
   position: fixed;
   z-index: 1000;
+  padding: 0;
+  height: 10vh;
+
 }
 
 nav ul {
@@ -289,8 +333,15 @@ nav ul li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  height: 100%;
+  color: rgb(241, 0, 0);
+  width: 96vw;
+  height: 86vh;
+  margin-top: 50px;
+  margin-left: 1vh;
+  
+  
+
+
   
 }
 .landing-page h1{
@@ -354,4 +405,50 @@ nav ul li a {
 
 .shaky-text {
   animation: shaky-anim 3s ease-in-out infinite;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.card {
+  margin: 0 0.5em;
+  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+  border: none;
+  border-radius: 0;
+}
+.carousel-inner {
+  padding: 1em;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #e1e1e1;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  .card img {
+    height: 11em;
+  }
+}
+
+.user-profile{
+  margin-left: 1vh;
+  margin-top: 150px;
+
+  width: 96vw;
+  height: 86vh;
+  
+}
+
+.bg{
+  background-color: rgb(255, 255, 255);
+  filter: drop-shadow(-5px);
 }

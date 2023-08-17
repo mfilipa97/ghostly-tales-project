@@ -1,22 +1,14 @@
-<section>
-<div id="carousel-wrapper">
-  <div id="menu">
-      <div id="current-option">
-        <span id="current-option-text1" data-previous-text="" data-next-text=""></span>
-        <span id="current-option-text2" data-previous-text="" data-next-text=""></span>
-      </div>
-      <button id="previous-option"></button>
-      <button id="next-option"></button>
-  </div>
-  <div id="image"></div>
-</div>
-</section>
-
-
-
-<h1>Ghostly Tales</h1>
-{{#if currentUser}}
-<h1>{{currentUser.username}} 🚀</h1>
-{{else}}
-    <p>Still not logged  in!</p>
-{{/if}}
+      <section class = "landing-page">
+            <h1 class="shaky-text">Ghostly </h1>
+            <h1 class="shaky-text">Tales</h1>
+            <div class="landing-description">
+            <p>Unearth the Supernatural: Share Your Own Ghostly Encounters </p>
+            <p>and Dive into Real-Life Tales of the Unexplained! 🌑👻</p>
+            </div>
+            {{#if currentUser}}
+             <a href="/story/list" class="landing-button">READ NOW</a>
+            {{else}}
+              <a href="/auth/signup" class="landing-button">JOIN NOW</a>
+            {{/if}}
+            
+         </section>
