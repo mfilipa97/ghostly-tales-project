@@ -14,13 +14,15 @@ router.get("/:username", isLoggedIn, async (req, res)=>{
 
       let foundUser = await User.findOne({username});
 
+      let {currentUser} =req.session;
+
       await foundUser.populate ('userStories');
 
       await foundUser.populate ('favorites');
 
       console.log(foundUser.userStories);
 
-      res.render("user-profile", {foundUser})
+      res.render("user-profile", {foundUser,currentUser})
     }
     catch(error){
       console.log("error while displaying user profile info: ", error);

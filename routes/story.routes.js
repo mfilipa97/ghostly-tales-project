@@ -20,13 +20,8 @@ const fileUpLoader = require('../config/cloudinary.config');
 router.get('/create', isLoggedIn, async (req, res) => {
     try {
         let {currentUser} =req.session;
-       /*  let map;
-          const { Map } = await google.maps.importLibrary("maps");
-          map = new Map(document.getElementById("map"), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
-          }); */
-        res.render('story/story-create', { currentUser /* map */ });
+     
+        res.render('story/story-create', {currentUser});
     } catch (error) {
         console.error('Error while creating Story form:', error);
     }
@@ -63,10 +58,12 @@ router.post ('/create',fileUpLoader.single("imgUrl"),isLoggedIn, async (req,res)
 router.get('/list', async (req,res)=>{
 
     try{
+        let {currentUser} =req.session;
+
         // get all story from our Database via .find() method
         let allStoriesFromDb = await Story.find();
 
-        res.render("story/story-list", {stories: allStoriesFromDb});
+        res.render("story/story-list", {stories: allStoriesFromDb, currentUser});
     }
     catch(error){
         console.log("Error caught while getting stories: ", error)
@@ -96,7 +93,7 @@ router.get('/:storyId', async (req, res)=>{
         }
 
     });
-    
+    if (currentUser){
     if (isLoggedIn && specificStory.likes.includes(currentUser._id)){
         liked = true;
     }
@@ -106,12 +103,17 @@ router.get('/:storyId', async (req, res)=>{
 
     if (specificStory.author._id === currentUser._id){
         userPermission = true;
-        res.render('story/story-details', {story:specificStory, userPermission});
+        res.render('story/story-details', {story:specificStory, userPermission, currentUser});
 
     }
     else {
-        res.render('story/story-details', {story:specificStory, userPermission});
+        res.render('story/story-details', {story:specificStory, userPermission, currentUser});
 
+
+    }
+    }   
+    else {
+        res.render('story/story-details', {story:specificStory});
 
     }
    
@@ -192,12 +194,12 @@ router.get('/:storyId/edit', isLoggedIn,async (req,res)=>{
     const {storyId} = req.params;
     let specificStory = await Story.findById(storyId);
     let storyAuthorId = await specificStory.author._id;
-    let currentUserId = req.session.currentUser._id;
+    let currentUser = req.session.currentUser;
 
     console.log(storyAuthorId);
     console.log(currentUserId);
-    if (storyAuthorId.equals(currentUserId)){
-        res.render('story/story-edit', {story: specificStory})
+    if (storyAuthorId.equals(currentUser._Id)){
+        res.render('story/story-edit', {story: specificStory, currentUser})
     }
     else {
         res.redirect(`/story/${storyId}`)
