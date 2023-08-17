@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 
+
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 1vh;
+  position: absolute;
+  z-index: 100;
+  right: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,31 +32,61 @@ body, html {
   padding: 0;
 }
 
+
 /* Apply background image */
 body {
-  background-image: url('https://res.cloudinary.com/ghostly/image/upload/v1692265458/ghostly-tales/story-default-image_hjbare.jpg');
-  background-size: cover; /* Adjust as needed */
+  background-color: #11c160;
   background-repeat: no-repeat;
   background-position: center center;
-  margin: 0; /* Remove default margin */  
+}
+
+.background-video{
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;
+  width:100%; 
+  height:100vh;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(30%);
+  
+
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%; 
+  height:100vh;
+  background-color: rgb(0, 0, 0); /* Adjust opacity and color as needed */
+  z-index:10;
+
 }
 
 /* Apply margin around the page content */
 .page-container {
+  padding: 0;
   background-image: url("https://res.cloudinary.com/ghostly/image/upload/v1692266170/ghostly-tales/land-page-background_rdhtwq.png") ;
-  background-size: auto; /* Adjust as needed */
+  background-size:cover; /* Adjust as needed */
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: bottom center;
   border-radius: 10px;
   background-attachment: fixed;
   height: 96vh;
   margin: 2vh;
-  padding: 0;
+  width: 97vw;
   position: relative;
   font-family:'Poppins', sans-serif;
   overflow-y: scroll;
   z-index: 0;
-  transition: opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  height: 114px;
 }
 
 
@@ -111,9 +145,10 @@ body {
 
 /* Search */ 
 .invisible-input {
-  border:rgb(161, 164, 162);
+  border:rgb(51, 51, 51);
   background-color: rgba(255, 255, 255, 0.014);
   color: white;
+  width: 300px
 }
 
 /* Search Button */
@@ -138,7 +173,7 @@ body {
 }
 .menu {
   --primary-color: #ffffff;
-  --hovered-color: #83c847;
+  --hovered-color: rgb(241, 0, 0);
   font-weight: 100;
   gap: 0.5rem;
   align-items: center;
@@ -198,10 +233,19 @@ body {
 }
 
 nav {
-  width: 100%;
+  background-image: url("https://res.cloudinary.com/ghostly/image/upload/v1692266170/ghostly-tales/land-page-background_rdhtwq.png") ;
+  background-size: cover; /* Adjust as needed */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;  
+  width: 97vw;
+  border-radius: 10px 10px 0px 0px; 
   line-height: 60px;
   position: fixed;
   z-index: 1000;
+  padding: 0;
+  height: 10vh;
+
 }
 
 nav ul {
@@ -284,8 +328,15 @@ nav ul li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  height: 100%;
+  color: rgb(241, 0, 0);
+  width: 96vw;
+  height: 86vh;
+  margin-top: 50px;
+  margin-left: 1vh;
+  
+  
+
+
   
 }
 .landing-page h1{
@@ -348,352 +399,4 @@ nav ul li a {
 
 .shaky-text {
   animation: shaky-anim 3s ease-in-out infinite;
-}
-
-
-/* story list card */
-.list-title{
-  font-size: 50px;
-  text-align: center;
-  font-family:'Poppins', sans-serif;
-  font-weight: 600;
-  color:#11ce66;
-}
-.weather-card {
-  margin: 60px auto;
-  height: 740px;
-  width: 450px;
-  background: #27323c;;
-  box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  transition: box-shadow 0.3s; /* Add transition property */
-}
-.weather-card:hover {
-  box-shadow: 0 1px 38px rgba(255, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25), 0 0 20px #11ce66, 0 0 40px #11ce66; /* Neon shadow effect */
-}
-.weather-card .top {
-  position: relative;
-  height: 570px;
-  width: 100%;
-  overflow: hidden;  
-  background-size: cover;
-  background-position: center center;
-  text-align: center;
-}
-.weather-card .top .wrapper {
-  padding: 30px;
-  position: relative;
-  z-index: 1;
-}
-.weather-card .top .wrapper .mynav {
-  height: 20px;
-}
-.weather-card .top .wrapper .mynav .lnr {
-  color: #fff;
-  font-size: 20px;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .top .wrapper .mynav .lnr-chevron-left {
-  display: inline-block;
-  float: left;
-}
-.weather-card .top .wrapper .mynav .lnr-cog {
-  display: inline-block;
-  float: right;
-}
-.weather-card .top .wrapper .heading {
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: 400;
-  color: #09ef3b;
-}
-.weather-card .top .wrapper .location {
-  margin-top: 20px;
-  font-size: 21px;
-  font-weight: 400;
-  color: #ffffff;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .top .wrapper .temp {
-  margin-top: 20px;
-}
-.weather-card .top .wrapper .temp a {
-  text-decoration: none;
-  color: #fff;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .top .wrapper .temp a .temp-type {
-  font-size: 85px;
-}
-.weather-card .top .wrapper .temp .temp-value {
-  display: inline-block;
-  font-size: 85px;
-  font-weight: 600;
-  color: #ffffff;;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .top .wrapper .temp .deg {
-  display: inline-block;
-  font-size: 35px;
-  font-weight: 600;
-  color: #fff;
-  vertical-align: top;
-  margin-top: 10px;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .top:after {
-  content: "";
-  height: 100%;
-  width: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.344);
-}
-.weather-card .bottom {
-  padding: 0 30px;
-  background: #27323c;
-}
-.weather-card .bottom .wrapper .forecast {
-  overflow: hidden;
-  margin: 0;
-  font-size: 0;
-  padding: 0;
-  padding-top: 20px;
-  max-height: 155px;
-}
-.weather-card .bottom .wrapper .forecast a {
-  text-decoration: none;
-  color: #fffcfc;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .bottom .wrapper .forecast .go-up {
-  text-align: center;
-  display: block;
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-.weather-card .bottom .wrapper .forecast li {
-  display: block;
-  font-size: 25px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.25);
-  line-height: 1em;
-  margin-bottom: 30px;
-  font-family:'Poppins', sans-serif;
-}
-.weather-card .bottom .wrapper .forecast li .date {
-  display: inline-block;
-}
-.weather-card .bottom .wrapper .forecast li .condition {
-  display: inline-block;
-  vertical-align: middle;
-  float: right;
-  font-size: 25px;
-}
-.weather-card .bottom .wrapper .forecast li .condition .temp {
-  display: inline-block;
-  vertical-align: top;
-  font-family:'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  padding-top: 2px;
-}
-.weather-card .bottom .wrapper .forecast li .condition .temp .deg {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  margin-left: 3px;
-  vertical-align: top;
-}
-.weather-card .bottom .wrapper .forecast li .condition .temp .temp-type {
-  font-size: 20px;
-}
-.weather-card .bottom .wrapper .forecast li.active {
-  color: rgba(255, 255, 255, 0.8);
-  font-family:'Poppins', sans-serif;
-}
-
-
-.underlines {
-  --primary-color: #ffffff;
-  --hovered-color: #83c847;
-  font-weight: 300;
-  gap: 0.5rem;
-  align-items: center;
-}
-.forecast{
-  display: flex;
-  justify-content: space-around;
-}
-.underlines {
-  font-size: 20px;
-  text-align: center;
-}
-
-.underlines {
-  text-decoration: none;
-  color: var(--primary-color);
-  position: relative;
-}
-
-.underlines::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background-color: var(--hovered-color);
-  transition: width 0.3s ease-out;
-}
-.heading{
-  margin-top: 10px;
-}
-.underlines:hover::after {
-  width: 100%;
-}
-.list-names{
-  color:#11ce66;
-  font-family:'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-
-/* Sign in forms */
-.profile-box {
-  width: 400px;
-  margin-left: 250px;
-  margin-top: 100px;
-  padding: 30px;
-  transform: translate(-50%, -50%);
-  background: rgba(0,0,0,.5);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-}
-.login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  background: rgba(0,0,0,.5);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-}
-
-.login-box h2 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-}
-
-.login-box .user-box {
-  position: relative;
-}
-
-.login-box .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-.login-box .user-box label {
-  position: absolute;
-  top:0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-}
-
-.login-box form a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #6b03f4b7;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
-}
-
-.login-box a:hover {
-  background: #6b03f4b7;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #6b03f4b7,
-              0 0 25px #6b03f4b7,
-              0 0 50px #6b03f4b7,
-              0 0 100px #6b03f4b7;
-}
-
-.login-box a span {
-  position: absolute;
-  display: block;
-}
-
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%,100% {
-    left: 100%;
-  }
-}
-
-
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%,100% {
-    top: 100%;
-  }
-}
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%,100% {
-    right: 100%;
-  }
-}
-
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,100% {
-    bottom: 100%;
-  }
-}
-/* Sign up form end */
-
-.mandatory{
-  color: red;
 }

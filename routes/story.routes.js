@@ -37,12 +37,18 @@ router.get('/create',isLoggedOut, (req, res)=>{
 router.post ('/create',fileUpLoader.single("imgUrl"),isLoggedIn, async (req,res) => {
   
    try {
-    const {title, description,address } = req.body;
+    const {title, description} = req.body;
+    const imgUrl = req.file.path;
+    console.log(imgUrl)
    
     let foundUser = await User.findById(req.session.currentUser._id);
 
-
-    let createStory =  await Story.create({title, description, author:foundUser, imgUrl:req.file.path, address});
+    if (imgUrl === undefined){
+    let createStory =  await Story.create({title, description, author:foundUser});
+    }
+    else{
+    let createStory =  await Story.create({title, description, author:foundUser, imgUrl});
+    }
 
     let addStoryToUser = await User.findByIdAndUpdate(foundUser._id, { $addToSet: { userStories: createStory._id } })
 

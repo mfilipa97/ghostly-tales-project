@@ -12,10 +12,18 @@
       <label>description <span class = "mandatory">*</span></label>
     </div>
     <div class="user-box">
-        <input type="text" name="location" required="">
-        <label>Location <span class="mandatory">*</span></label>
-      </div>
-    <div class="pac-card" id="pac-card">
+      <input type="file" name="imgUrl" class="form-control-file" required="">
+      <label>Image <span class = "mandatory">*</span></label>
+    </div>
+     <button type="submit">CREATE</button>
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div> 
+</div>
+
+    {{!-- <div class="pac-card" id="pac-card">
       <div>
         <div id="title">Autocomplete search</div>
       <div id="pac-container">
@@ -226,4 +234,4 @@ function initMap() {
   });
 }
 </script>
-
+ --}}
