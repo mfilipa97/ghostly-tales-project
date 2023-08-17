@@ -1,65 +1,37 @@
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{appTitle}}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?key=AitQJ8JsonN-0MbHHMkSTEQDKeUDhdESxyA1xHXs9up40tT_uVV9AH_TW8u2R9uG"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-   <body>
-      <div class="wrapper">
-         <header>
-            <nav>
-               <div class="menu-icon">
-                  <i class="fa fa-bars fa-2x"></i>
-               </div>
-               <div class="logo">
-                  <img src="">
-               </div>
-               <div class="menu">
-                  <ul>
-                     <li><a class ="home-link" href="/">Home</a></li>
-                     {{#if currentUser}}
-                     <li><a class="create-story" href="/story/create">Create a Story</a></li>
-                     <li><a class="story-list" href="/story/list">Stories</a></li>
-                     <li><a class="sign-link" href="/profile/{{currentUser.username}}">Profile</a></li>
-                     <li><a class="signout-link" href="/auth/logout">Log Out</a></li>
-                     <li><a href="#">Contact</a></li>
-
-                     {{else}}
-    <li><a class="create-story" href="/story/create">Create a Story</a></li>
-    <li><a class="story-list" href="/story/list">Stories</a></li>
-    <li><a class="sign-link" href="/auth/login">Login</a></li>
-    <li><a class="sign-link" href="/auth/signup">Sign up</a>
-   {{/if}}
-                  </ul>
-               </div>
-            </nav>
-         </header>
-         <div class="content">
-            <p>
-               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-            <p>
-               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-         </div>
-      </div>
-      {{{body}}}
-    
-
-
-
-
-
-
-
-
-
-
-
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   </body>
-</html>
+  <div class="col-md-4">
+    <h4 class="text-center"><strong>STYLE 3</strong></h4>
+    <hr>
+    <div class="profile-card-4 text-center">
+        <img src=src="{{this.imgUrl}}" alt="{{this.title}}">
+        <div class="profile-content">
+            <div class="profile-name">
+               {{this.title}}
+                <p>{{this.author.username}}</p>
+            </div>
+            <div class="profile-description">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="profile-overview">
+                        <p>TWEETS</p>
+                        <h4>1300</h4>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="profile-overview">
+                        <p>FOLLOWERS</p>
+                        <h4>250</h4>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="profile-overview">
+                        <p>FOLLOWING</p>
+                        <h4>168</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ 

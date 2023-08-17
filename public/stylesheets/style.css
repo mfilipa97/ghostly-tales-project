@@ -89,9 +89,9 @@ body {
 
 
 
-/*Navbar open */
+/*Buttons */
 
-/*.btn-info2 img{
+.btn img{
   height: 40px;
   width: 40x;
   background: #6bb94d00;
@@ -105,7 +105,37 @@ body {
   color: white;
 
 
-}*/
+}
+.btn-list {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-radius: 30px;
+  background: #11c160;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 15px;
+}
+
+.btn-list:hover {
+  box-shadow:  7px 7px 50px -14px #11ce66;
+
+}
+
+.btn-list:active {
+
+  transform: scale(0.97);
+ box-shadow: 7px 5px 56px -10px #11ce66;
+}
+
+/*____________________*/
 
 .home-link img{
   width: 50px;
@@ -121,42 +151,8 @@ body {
 }
 
 /* Search Button */
-/*.btn-info2 {
-  background: #6bb94d00;
-  border: none;
-  font-family: inherit;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.4s;
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
- 
-}
 
-.btn-info2:hover {
-  text-shadow: 7px 5px 56px -14px #C3D900;
 
-}*/
-.btn-info2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 10px;
-  width: 0;
-  height: 2px;
-  background-color: var(--hovered-color);
-  transition: width 0.3s ease-out;
-}
-
-.btn-info2 {
-  text-decoration: none;
-  color: var(--primary-color);
-  position: relative;
-}
-.btn-info2:hover::after {
-  width: 100%;
-}
 
 /*end*/
 
@@ -370,7 +366,7 @@ nav ul li a {
   border-radius: 30px;
   background: #11c160;
   border: none;
-  font-family: inherit;
+  font-family:'Poppins', sans-serif;
   text-align: center;
   cursor: pointer;
   transition: 0.4s;
@@ -383,7 +379,6 @@ nav ul li a {
 
 .landing-button:hover {
   box-shadow: 7px 7px 50px -14px #11ce66;
-
 }
 
 .landing-button:active {
@@ -405,51 +400,363 @@ nav ul li a {
   animation: shaky-anim 3s ease-in-out infinite;
 }
 
-.cards-wrapper {
+/* story list card */
+.container-1
+.list-title{
+  font-size: 50px;
+  text-align: center;
+  font-family:'Poppins', sans-serif;
+  font-weight: 600;
+  color:#11ce66;
+}
+.stories-title{
+  font-size: 50px;
+  text-align: center;
+  font-family:'Poppins', sans-serif;
+  font-weight: 200;
+  color:#ffffff;
+  font-family:'Poppins', sans-serif;
+  margin-top: 100px;
+
+
+}
+.weather-card {
+  border-radius: 20px;
+  margin: 60px auto;
+  height: 500px;
+  width: 500px;
+  background: #27323c;;
+  box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: box-shadow 0.3s; /* Add transition property */
+}
+.weather-card:hover {
+  box-shadow: 0 1px 38px rgba(255, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25), 0 0 20px #11ce66, 0 0 40px #11ce66; /* Neon shadow effect */
+}
+.weather-card .top {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;  
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+}
+.weather-card .top .wrapper {
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+.weather-card .top .wrapper .mynav {
+  height: 20px;
+}
+.weather-card .top .wrapper .mynav .lnr {
+  color: #fff;
+  font-size: 20px;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .top .wrapper .mynav .lnr-chevron-left {
+  display: inline-block;
+  float: left;
+}
+.weather-card .top .wrapper .mynav .lnr-cog {
+  display: inline-block;
+  float: right;
+}
+.weather-card .top .wrapper .heading {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #09ef3b;
+}
+.weather-card .top .wrapper .location {
+  margin-top: 20px;
+  font-size: 21px;
+  font-weight: 400;
+  color: #ffffff;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .top .wrapper .temp {
+  margin-top: 20px;
+}
+.weather-card .top .wrapper .temp a {
+  text-decoration: none;
+  color: #fff;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .top .wrapper .temp a .temp-type {
+  font-size: 85px;
+}
+.weather-card .top .wrapper .temp .temp-value {
+  display: inline-block;
+  font-size: 85px;
+  font-weight: 600;
+  color: #ffffff;;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .top .wrapper .temp .deg {
+  display: inline-block;
+  font-size: 35px;
+  font-weight: 600;
+  color: #fff;
+  vertical-align: top;
+  margin-top: 10px;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .top:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.344);
+}
+.weather-card .bottom {
+  padding: 0 30px;
+  background: #27323c;
+}
+.weather-card .bottom .wrapper .forecast {
+  overflow: hidden;
+  margin: 0;
+  font-size: 0;
+  padding: 0;
+  padding-top: 20px;
+  max-height: 155px;
+}
+.weather-card .bottom .wrapper .forecast a {
+  text-decoration: none;
+  color: #fffcfc;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .bottom .wrapper .forecast .go-up {
+  text-align: center;
+  display: block;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.weather-card .bottom .wrapper .forecast li {
+  display: block;
+  font-size: 25px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.25);
+  line-height: 1em;
+  margin-bottom: 30px;
+  font-family:'Poppins', sans-serif;
+}
+.weather-card .bottom .wrapper .forecast li .date {
+  display: inline-block;
+}
+.weather-card .bottom .wrapper .forecast li .condition {
+  display: inline-block;
+  vertical-align: middle;
+  float: right;
+  font-size: 25px;
+}
+.weather-card .bottom .wrapper .forecast li .condition .temp {
+  display: inline-block;
+  vertical-align: top;
+  font-family:'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 2px;
+}
+.weather-card .bottom .wrapper .forecast li .condition .temp .deg {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 3px;
+  vertical-align: top;
+}
+.weather-card .bottom .wrapper .forecast li .condition .temp .temp-type {
+  font-size: 20px;
+}
+.weather-card .bottom .wrapper .forecast li.active {
+  color: rgba(255, 255, 255, 0.8);
+  font-family:'Poppins', sans-serif;
+}
+
+
+.underlines {
+  --primary-color: #ffffff;
+  --hovered-color: #83c847;
+  font-weight: 300;
+  gap: 0.5rem;
+  align-items: center;
+}
+.underlines {
+  font-size: 20px;
+  text-align: center;
+}
+
+.underlines {
+  text-decoration: none;
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  color: red;
+  font-family:'Poppins', sans-serif;
 }
-.card img {
-  max-width: 100%;
-  max-height: 100%;
+
+
+.underlines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hovered-color);
+  transition: width 0.3s ease-out;
 }
-.card {
-  margin: 0 0.5em;
-  box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-  border: none;
-  border-radius: 0;
+.heading{
+  margin-top: 10px;
+  
 }
-.carousel-inner {
-  padding: 1em;
+.underlines:hover::after {
+  width: 100%;
 }
-.carousel-control-prev,
-.carousel-control-next {
-  background-color: #e1e1e1;
-  width: 5vh;
-  height: 5vh;
-  border-radius: 50%;
+.list-names{
+  color:#11ce66;
+  font-family:'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.user-tags{
+  color: white;
+  margin-top: 10px;
+  font-family:'Poppins', sans-serif;
+}
+
+
+/* Sign in forms */
+.profile-box {
+  width: 400px;
+  margin-left: 250px;
+  margin-top: 100px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.095);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box {
+  position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.212);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
 }
-@media (min-width: 768px) {
-  .card img {
-    height: 11em;
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #6b03f4b7;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #6b03f4b7;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #6b03f4b7,
+              0 0 25px #6b03f4b7,
+              0 0 50px #6b03f4b7,
+              0 0 100px #6b03f4b7;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
   }
 }
 
 .user-profile{
-  margin-left: 2vh;
-  margin-bottom: 2vh;
+  margin-left: 1vh;
   margin-top: 150px;
 
-  width: 94vw;
-  height: 90vh;
+  width: 96vw;
+  height: 86vh;
+  
   
 }
 
-.bg{
-  background-color: rgb(255, 255, 255);
-  filter: drop-shadow(-5px);
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+/* Sign up form end */
+
+.mandatory{
+  color: red;
   padding-top: 20px;
 }
 

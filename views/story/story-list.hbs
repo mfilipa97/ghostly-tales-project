@@ -1,25 +1,37 @@
-  <h1>Stories</h1>
-<hr>
-<div class="row d-flex justify-content-center" >
-  {{#each stories}}
-    <div class="col-md-3 mb-3 mx-5">
-      <div class="card" style="width: 18rem;">
-        <img src="{{this.imgUrl}}" class="card-img-top" alt="{{this.title}}">
-        <div class="card-body text-light">
-          <h5 class="card-title fw-bold">{{this.title}}</h5>
-          <p class="card-text"><span>Description:</span> {{this.description}}</span></p>
-          <h6 class="card-text"><span>Author:</span> {{this.author.username}} </h6>
-          <a href="/story/{{this._id}}" class="btn-info btn-primary btn-transparent">Check out the story</a>
-          <a href="/story/{{this._id}}/edit" class="btn-info btn-primary btn-transparent">Edit</a>
-        </div>
-      </div>
-    </div>
-  {{else}}
-    <p>There are no movies yet!</p>
-  {{/each}}
-  <hr />
-</div>
-
-
-  
-
+<h1 class = "list-title">Stories</h1>
+<hr>      
+<div class="container">
+	<div class="row">
+    {{#each stories}}
+		<div class="col">
+			<div class="weather-card one" style="width: 18rem;">
+				<div class="top"style="background-image:url('{{this.imgUrl}}">
+          
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+						</div>
+						
+						<!--<p class="temp">
+							<img class="mr-3 rounded-circle" src="{{author.profilePicUrl}}" alt="Author Image" style="width: auto; max-height: 50px">-->
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+            <div><h3 class="user-tags">{{this.title}}</h3>
+						<h5 class="user-tags">{{this.author.username}}</h5></div>
+						<ul class="forecast">	
+							<li class="active">
+								<a href="/story/{{this._id}}" class="underlines">Check out the story</a>
+							</li>
+							<li>
+							<a href="/story/{{this._id}}/edit" class="underlines">Edit</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+    {{/each}}
