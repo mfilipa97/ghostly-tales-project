@@ -515,7 +515,7 @@ nav ul li a {
   background: rgba(0, 0, 0, 0.344);
 }
 .weather-card .bottom {
-  padding: 0 30px;
+  padding: 0 15px;
   background: #27323c;
 }
 .weather-card .bottom .wrapper .forecast {
