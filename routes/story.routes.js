@@ -92,7 +92,6 @@ router.get('/:storyId', async (req, res)=>{
     const {currentUser} = req.session;
     let userPermission = false;
     let storyAuthorId = await specificStory.author._id;
-    let currentUserId = currentUser._id;
 
     await specificStory.populate("comments author")
 
@@ -111,7 +110,7 @@ router.get('/:storyId', async (req, res)=>{
     else{
         liked = false;
     }
-    if (storyAuthorId.equals(currentUserId)){
+    if (storyAuthorId.equals(currentUser._id)){
         userPermission = true;
         res.render('story/story-details', {story:specificStory, userPermission, currentUser});
 
