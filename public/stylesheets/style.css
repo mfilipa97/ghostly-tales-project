@@ -29,7 +29,110 @@ header {
   background-size: cover;
 }
 
-.content {
+.home-link img{
+  width: 50px;
+  height: 50px;
+}
+
+/* Search */ 
+.invisible-input {
+  border:rgb(161, 164, 162);
+  background-color: rgba(255, 255, 255, 0.014);
+  color: white;
+}
+
+/* Search Button */
+.btn-info2 {
+  background: #6bb94d00;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+ 
+}
+
+.btn-info2:hover {
+  text-shadow: 7px 5px 56px -14px #C3D900;
+
+}
+.btn-info2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hovered-color);
+  transition: width 0.3s ease-out;
+}
+
+.btn-info2 {
+  text-decoration: none;
+  color: var(--primary-color);
+  position: relative;
+}
+.btn-info2:hover::after {
+  width: 100%;
+}
+
+/*end*/
+
+
+/* end of search */
+
+
+
+
+/* Navbar colored links*/
+
+.menu {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+}
+.menu {
+  --primary-color: #ffffff;
+  --hovered-color: #83c847;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.menu ul li {
+  font-size: 20px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.menu ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--hovered-color);
+  transition: width 0.3s ease-out;
+}
+
+.menu ul li a:hover::after {
+  width: 100%;
+}
+
+
+
+/*navbar colored links off*/
+  .content {
   width: 94%;
   margin: 4em auto;
   font-size: 20px;

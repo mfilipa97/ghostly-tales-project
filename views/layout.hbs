@@ -15,21 +15,22 @@
                   <i class="fa fa-bars fa-2x"></i>
                </div>
                <div class="logo">
-                  <a class ="home-link" href="/"> <img src = " "></a>
+                  <a class ="home-link" href="/"> <img src = "https://res.cloudinary.com/ghostly/image/upload/v1692226427/ghost_ocmjcx.svg"></a>
                </div>
                <div class="menu">
-                
+                <div class ="links">
                   <ul>
-                    <li><div>
+                    <li><div class="input-container" >
                     <form action="/search" method="GET">
-                        <input type="text" name="query" placeholder="Search for Stories and Users!">
-                    <button type="submit">Search</button>
+                        <input type="text" name="query" placeholder="Search for Stories and Users!" class="invisible-input">
+                    <button type="submit" class="btn-info2">Search</button>
                     </form>
                   </div></li>
                      <li><a class ="home-link" href="/">About</a></li>
                      {{#if currentUser}}
-                     <li><a class="create-story" href="/story/create">Create a Story</a></li>
+                     <li><a class="create-story" href="/story/create">Create a Story</a>
                      <li><a class="story-list" href="/story/list">Stories</a></li>
+                     </li>
                      <li><a class="sign-link" href="/profile/{{currentUser.username}}">Profile</a></li>
                      <li><a class="signout-link" href="/auth/logout">Log Out</a></li>
 
@@ -39,8 +40,8 @@
     <li><a class="sign-link" href="/auth/signup">Sign up</a>
    {{/if}}
   
-  </ul>
-  <a class = "profile" href="/user.profile"></a>
+  </ul></div>
+ <!-- <a class = "profile" href="/user.profile"></a>
   <svg class="line-bottom" width="750" height="30" viewbox="0,0 1000,40">
    <polygon class="lb" points="35,53 115,53 125,43 135,53 215,53" />
    <polygon class="lb" points="285,53 365,53 375,43 385,53 465,53" />
@@ -48,8 +49,8 @@
    <polygon class="lb" points="535,53 615,53 625,43 635,53 715,53" />
 
    <polygon class="lb" points="785,53 865,53 875,43 885,53 965,53" />
-  </svg>
-  
+  </svg>-->
+  </div>
  </div>
 </div>
 <!--<div class="content">
