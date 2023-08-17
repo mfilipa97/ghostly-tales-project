@@ -1,25 +1,37 @@
-<div>
-    <h2>SPECIFIC STORY</h2>
-    <h3>{{story.title}}</h3>
-    <h6>Author: {{story.author.username}}</h6>
-    <p>Likes: {{story.likes.length}}</p>
-
+<section class="user-profile">
+   
+ <!-- my -->
+<div class="image-with-text">
+  <img src="{{story.imgUrl}}" alt="Image">
+  <div class="text-box">
+    <h2 class="title">{{story.title}}</h2>
+    <p> @{{story.author.username}} </p>
+    <hr>
+    <p class="description">{{story.description}}</p>
+  </div>
+  <div class="btn-fav">
     <form method="POST" action="/story/{{story._id}}">
-        <input type="hidden" name="favorite" value="true">
-        <button type="submit">Favorite</button>
+      <input type="hidden" name="favorite" value="true">
+      <button type="submit" class="btn-list">Favorite</button>
     </form>
-
     <form method="POST" action="/story/{{story._id}}/like">
-    <button type="submit" id="likeButton">
+      <button type="submit" class="btn-list">
         {{#if liked}}
-        Liked
+          Liked
         {{else}}
-        Like
+          Like
         {{/if}}
-    </button>
+      </button>
     </form>
+  </div>
+</div>
+<div class="spread__page-bottom">
+  <div class="number">{{story.likes.length}}</div>
+</div>
 
-    <p>{{story.description}}</p>
+
+
+ <!-- ok -->
     {{#if userPermission}}
     <a href="/story/{{story._id}}/edit">Edit Story</a>
     <form action="/story/{{story._id}}/delete" method="POST">
@@ -27,37 +39,42 @@
     </form>
     {{/if}}
 </div>
-<div>
+<div class=" bg">
     <!-- Comment Section -->
+    <div class="bg-light rounded">
     <h2>Comment Section</h2>
-    <div>
-        <h3>Leave a comment</h3>
-        <!-- Form to Create a comment -->
-        <form action="/story/{{story._id}}/comment/create" method="POST">
-            <label>New comment</label>
-            <textarea name="content" cols="30" rows="5"></textarea>
-            <button>Send</button>
-        </form>
+      <div class="leave-comment">
+    <h3 class="section-title">Leave a Comment</h3>
+    <form action="/story/{{story._id}}/comment/create" method="POST">
+      <textarea name="content" class="comment-input" placeholder="Your comment..."></textarea>
+      <button class="submit-comment-btn">Submit</button>
+    </form>
+  </div>
+</div>
         <!-- End of the Form to Create a Comment -->
         <br>
         <!-- Display all the comments of the Story that we're seeing -->
     </div>
-    <div>
-        {{#each story.comments}}
-        <div>
-            <!-- Actually displaying the comments -->
-            <p><span>By {{author.username}}</span>: {{content}}</p>
-            <!-- Deleting the comment -->
-             <form action="/story/{{../story._id}}/comment/delete/{{this._id}}" method="POST">
-                <input type="hidden" name="storyId" value="{{story._id}}">
-                <input type="hidden" name="commentId" value="{{this._id}}">
-                <button>Delete Comment</button>
-            </form>
-        </div>
-        {{/each}}
+    <div class="comment-section">
+  {{#each story.comments}}
+    <div class="comment">
+      <div class="comment-header">
+        <span class="comment-author">By {{author.username}}</span>
+        <form action="/story/{{../story._id}}/comment/delete/{{this._id}}" method="POST">
+          <input type="hidden" name="storyId" value="{{story._id}}">
+          <input type="hidden" name="commentId" value="{{this._id}}">
+          <button class="delete-comment-btn">Delete Comment</button>
+        </form>
+      </div>
+      <p class="comment-content">{{content}}</p>
     </div>
-
+  {{/each}}
 </div>
 
 
+</div>
+</div>
+</div>
+</div>
+</section>
 

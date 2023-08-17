@@ -5,17 +5,17 @@
   <h2>CREATE STORY</h2>
     <div class="user-box">
       <input type="text" name="title" required="">
-      <label>title <span class = "mandatory">*</span></label>
+      <label>Title <span class = "mandatory">*</span></label>
     </div>
     <div class="user-box">
       <input type="text" name="description" required="">
-      <label>description <span class = "mandatory">*</span></label>
+      <label>Description <span class = "mandatory">*</span></label>
     </div>
     <div class="user-box">
       <input type="file" name="imgUrl" class="form-control-file" required="">
       <label>Image <span class = "mandatory">*</span></label>
     </div>
-     <button type="submit">CREATE</button>
+     <button type="submit" class="btn-list">CREATE</button>
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
