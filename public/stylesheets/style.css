@@ -799,6 +799,7 @@ nav ul li a {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
 
 }
 
@@ -850,6 +851,7 @@ nav ul li a {
 
   .ironhack-logo {
     margin-top:20px;
+    margin-bottom: 20px;
   }
 
 .ironhack-logo img {
@@ -887,20 +889,6 @@ font-weight: 300;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-}
-
-.story-card-content h4 {
-  margin: 0;
-  width: 250px;
-
-}
-
-.story-card-user img {
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-  border: 1px solid white;
-  border-radius: 50%;
 }
 
 .image-with-text {
@@ -1066,3 +1054,51 @@ font-weight: 300;
 
 
 
+.story-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  padding-top: 10px;
+  font-family:'Poppins', sans-serif;
+}
+
+.story-card-content h4 {
+  margin: 0;
+  width: 250px;
+
+  font-weight: 400;
+}
+
+.story-card-content h6 {
+  margin: 0;
+  font-weight: 100;
+  width: 200px;
+  line-height: 35px;
+}
+.story-card-text {
+  text-align: left;
+  padding-top: 10px;
+  padding-right: 150px;
+  width: 100%;
+
+}
+
+.story-card-user {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  justify-content: center;
+  padding-top: 15px;
+
+
+}
+
+.story-card-user img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
