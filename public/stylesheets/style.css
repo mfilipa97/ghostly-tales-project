@@ -893,6 +893,16 @@ font-weight: 300;
   margin: 0;
   width: 250px;
 
+}
+
+.story-card-user img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
 .image-with-text {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -973,13 +983,6 @@ font-weight: 300;
   font-size: 12px;
 }
 
-.story-card-user img {
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-  border: 1px solid white;
-  border-radius: 50%;
-}
 .comment-content {
   font-size: 14px;
   line-height: 1.4;
@@ -1060,3 +1063,6 @@ font-weight: 300;
 .submit-comment-btn:hover {
   background-color: #2980b9;
 }
+
+
+

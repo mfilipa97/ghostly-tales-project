@@ -3,12 +3,12 @@
     <div class="bg  rounded ">
       <div class="px-4 pt-0 pb-4 cover">
         <div class="media align-items-end profile-head">
-          <form action="/profile/{{currentUser.username}}/edit" method="POST">
+          <form action="/profile/{{currentUser.username}}/edit" method="POST" enctype="multipart/form-data">
           <div class="d-flex flex-column">
 
             <img src="{{currentUser.profilePicUrl}}" alt="{{currentUser.username}}" width="130" class="rounded mb-2 img-thumbnail">
             <p>New Profile Pic?</p>
-            <input type="file" name="profilePicUrl" class="form-control-file">
+            <input type="file" name="profilePicUrl" class="form-control-file" >
 
           </div>
           <div class="media-body mb-5 text-black">
