@@ -30,6 +30,11 @@ router.get("/", (req, res, next) => {
   
 });
 
+router.get('/about', (req,res)=>{
+
+  res.render("about-us");
+})
+
 
 module.exports = router;
 

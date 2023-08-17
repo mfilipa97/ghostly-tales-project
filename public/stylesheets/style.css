@@ -6,9 +6,7 @@
 /* custom scrollbar */
 ::-webkit-scrollbar {
   width: 1vh;
-  position: absolute;
-  z-index: 100;
-  right: 0;
+
 }
 
 ::-webkit-scrollbar-track {
@@ -440,15 +438,127 @@ nav ul li a {
 }
 
 .user-profile{
-  margin-left: 1vh;
+  margin-left: 2vh;
+  margin-bottom: 2vh;
   margin-top: 150px;
 
-  width: 96vw;
-  height: 86vh;
+  width: 94vw;
+  height: 90vh;
   
 }
 
 .bg{
   background-color: rgb(255, 255, 255);
   filter: drop-shadow(-5px);
+  padding-top: 20px;
+}
+
+
+.about-container{
+
+  width: 95vw;
+  height: 85vh;
+  margin-left: 1vw;
+  background-color: #00000077;
+  border-radius: 30px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-container h1 {
+  margin-top: 50px;
+
+}
+
+
+.about-text {
+  width: 91vw;
+  height: 15vh;
+  background-color: #00000077;
+  border-radius: 30px;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+
+
+}
+
+.about-text p {
+  width: 89vw;
+  margin-top: 50px;
+}
+.about-members{
+  width: 91vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.member {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #156438;
+  border-radius: 10px;
+  padding: 20px;
+
+
+}
+.member img {
+  width: 200px;
+  height: 200px;
+  border: 10px solid rgba(0, 0, 0, 0.545);
+  border-radius: 50%;
+}
+.platform-button {
+  padding-left: 26px;
+  padding-right: 26px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  border-radius: 10px;
+  background: #11c160;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 25px;
+  margin: 20px 10px 0 10px;
+}
+  .platform-button:hover {
+    box-shadow: 7px 7px 50px -14px #11ce66;
+  
+  }
+  
+  .landing-button:active {
+  
+    transform: scale(0.97);
+   box-shadow: 7px 5px 56px -10px #11ce66;
+  }
+
+  .ironhack-logo {
+    margin-top:20px;
+  }
+
+.ironhack-logo img {
+  height: 100px;
+  width: 100px;
+}
+.about-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
