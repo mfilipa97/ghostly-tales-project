@@ -4,6 +4,8 @@ const router = express.Router();
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
+const fileUpLoader = require('../config/cloudinary.config');
+
 
 // GET to display user profile based on username
 router.get("/:username", isLoggedIn, async (req, res)=>{
@@ -29,18 +31,49 @@ router.get("/:username", isLoggedIn, async (req, res)=>{
     }
 })
 
+// GET - Display profile with changeable bio and pic if current user matches the profile
+router.get ("/:username/edit", isLoggedIn, async (req, res)=>{
+
+  const {username} = req.params;
+  const {currentUser} = req.session;
+  const userId = currentUser._id;
+  let userPermission = false;
+
+  try{
+    const findUser = await User.findOne({username: username});
+    const findUserId = findUser._id
+    console.log(findUser);
+    console.log(userId)
+
+    if (findUserId.equals(userId)){
+        res.render ("user-profile-change", {currentUser});
+    }
+    else {
+        return;
+    }
+  }
+  catch(error){
+      console.log(error)
+  }
+ 
+});
+
 // POST - change profile bio and pic if current user matches the profile
-router.post ("/:username", isLoggedIn, async (req, res)=>{
+router.post ("/:username/edit", fileUpLoader.single("profilePicUrl"),isLoggedIn, async (req, res)=>{
 
     const {username} = req.params;
-    const {profileBio,profilePicUrl} = req.body;
+    const {profileBio} = req.body;
     const userId = req.session.currentUser._id;
     let userPermission = false;
 
     try{
 
       const findUser = await User.findOne({username});
-      if (findUser._id === userId){
+      const findUserId = findUser._id
+      profilePicUrl = req.file.path;
+      console.log(profilePicUrl);
+
+      if (findUserId.equals(userId)){
           userPermission = true;
       }
       else {

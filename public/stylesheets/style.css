@@ -889,7 +889,9 @@ font-weight: 300;
   justify-content: space-around;
 }
 
-/* Details page */
+.story-card-content h4 {
+  margin: 0;
+  width: 250px;
 
 .image-with-text {
   display: grid;
@@ -971,6 +973,12 @@ font-weight: 300;
   font-size: 12px;
 }
 
+.story-card-user img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
 .comment-content {
   font-size: 14px;
   line-height: 1.4;

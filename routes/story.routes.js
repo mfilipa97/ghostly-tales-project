@@ -204,11 +204,10 @@ router.get('/:storyId/edit', isLoggedIn,async (req,res)=>{
     const {storyId} = req.params;
     let specificStory = await Story.findById(storyId);
     let storyAuthorId = await specificStory.author._id;
-    let currentUserId = req.session.currentUser._id;
+    let currentUser = req.session.currentUser;
 
     console.log(storyAuthorId);
-    console.log(currentUserId);
-    if (storyAuthorId.equals(currentUserId)){
+    if (storyAuthorId.equals(currentUser._id)){
         res.render('story/story-edit', {story: specificStory, currentUser})
     }
     else {
