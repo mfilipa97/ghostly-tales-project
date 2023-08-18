@@ -61,18 +61,16 @@
 						</p>
 					</div>
 				</div>
-				<div class="bottom">
-					<div class="wrapper">
-            <div><h3 class="user-tags">{{this.title}}</h3>
-						<h5 class="user-tags">{{this.author.username}}</h5></div>
-						<ul class="forecast">	
-							<li class="active">
-								<a href="/story/{{this._id}}" class="underlines">Check out the story</a>
-							</li>
-							<li>
-							<a href="/story/{{this._id}}/edit" class="underlines">Edit</a>
-							</li>
-						</ul>
+			<div class="bottom">
+					<div class="wrapper story-card-content">
+						<div class="story-card-text">
+            			<h4 class="user-tags">{{this.title}}</h4>
+						<div class="story-card-user">
+							<img src="{{this.author.profilePicUrl}}" alt="{{this.author.username}}">
+						<h6 class="user-tags">{{this.author.username}}</h6>
+						</div>
+						</div>
+						<a href="/story/{{this._id}}" class="landing-button">Read now</a>
 					</div>
 				</div>
 			</div>
@@ -101,17 +99,15 @@
 					</div>
 				</div>
 				<div class="bottom">
-					<div class="wrapper">
-            <div><h3 class="user-tags">{{this.title}}</h3>
-						<h5 class="user-tags">{{this.author.username}}</h5></div>
-						<ul class="forecast">	
-							<li class="active">
-								<a href="/story/{{this._id}}" class="underlines">Check out the story</a>
-							</li>
-							<li>
-							<a href="/story/{{this._id}}/edit" class="underlines">Edit</a>
-							</li>
-						</ul>
+					<div class="wrapper story-card-content">
+						<div class="story-card-text">
+            			<h4 class="user-tags">{{this.title}}</h4>
+						<div class="story-card-user">
+							<img src="{{this.author.profilePicUrl}}" alt="{{this.author.username}}">
+						<h6 class="user-tags">{{this.author.username}}</h6>
+						</div>
+						</div>
+						<a href="/story/{{this._id}}" class="landing-button">Read now</a>
 					</div>
 				</div>
 			</div>

@@ -33,7 +33,6 @@ body, html {
 
 /* Apply background image */
 body {
-  background-color: #11c160;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -112,7 +111,8 @@ body {
   padding-bottom: 8px;
   padding-top: 8px;
   border-radius: 30px;
-  background: #11c160;
+  background: #f10000;
+  /* background: #11c160; */
   border: none;
   font-family: inherit;
   text-align: center;
@@ -125,14 +125,18 @@ body {
 }
 
 .btn-list:hover {
-  box-shadow:  7px 7px 50px -14px #11ce66;
+  /* box-shadow:  7px 7px 50px -14px #11ce66; */
+  box-shadow:  7px 7px 50px -14px #ff0000;
+
 
 }
 
 .btn-list:active {
 
   transform: scale(0.97);
- box-shadow: 7px 5px 56px -10px #11ce66;
+ box-shadow: 7px 5px 56px -10px #ff0000;
+ /* box-shadow: 7px 5px 56px -10px #11ce66; */
+
 }
 
 /*____________________*/
@@ -172,7 +176,7 @@ body {
 }
 .menu {
   --primary-color: #ffffff;
-  --hovered-color: rgb(241, 0, 0);
+  --hovered-color: #ff0000;
   font-weight: 100;
   gap: 0.5rem;
   align-items: center;
@@ -327,7 +331,7 @@ nav ul li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(241, 0, 0);
+  color: #ff0000;
   width: 96vw;
   height: 86vh;
   margin-top: 50px;
@@ -364,7 +368,8 @@ nav ul li a {
   padding-bottom: 8px;
   padding-top: 8px;
   border-radius: 30px;
-  background: #11c160;
+  /* background: #11c160; */
+    background: #700000;
   border: none;
   font-family:'Poppins', sans-serif;
   text-align: center;
@@ -378,13 +383,17 @@ nav ul li a {
 }
 
 .landing-button:hover {
-  box-shadow: 7px 7px 50px -14px #11ce66;
+  /* box-shadow: 7px 7px 50px -14px #11ce66; */
+  box-shadow: 7px 7px 50px -14px #ff0000;
+
 }
 
 .landing-button:active {
 
   transform: scale(0.97);
- box-shadow: 7px 5px 56px -10px #11ce66;
+ /* box-shadow: 7px 5px 56px -10px #11ce66; */
+ box-shadow: 7px 5px 56px -10px #ff0000;
+
 }
 
 @keyframes shaky-anim {
@@ -407,7 +416,8 @@ nav ul li a {
   text-align: center;
   font-family:'Poppins', sans-serif;
   font-weight: 600;
-  color:#11ce66;
+  /* color:#11ce66; */
+  color: #ff0000;
 }
 .stories-title{
   font-size: 50px;
@@ -432,7 +442,9 @@ nav ul li a {
   
 }
 .weather-card:hover {
-  box-shadow: 0 1px 38px rgba(255, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25), 0 0 20px #11ce66, 0 0 40px #11ce66; /* Neon shadow effect */
+  /* box-shadow: 0 1px 38px rgba(255, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25), 0 0 20px #11ce66, 0 0 40px #11ce66; Neon shadow effect */
+  box-shadow: 0 1px 38px rgba(255, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25), 0 0 20px #ff0000, 0 0 40px #ff0000; /* Neon shadow effect */
+
 }
 .weather-card .top {
   position: relative;
@@ -468,7 +480,9 @@ nav ul li a {
   margin-top: 20px;
   font-size: 20px;
   font-weight: 400;
-  color: #09ef3b;
+  /* color: #09ef3b; */
+  color: #ff0000;
+
 }
 .weather-card .top .wrapper .location {
   margin-top: 20px;
@@ -596,7 +610,7 @@ nav ul li a {
   position: relative;
   display: flex;
   justify-content: space-around;
-  color: red;
+  color: #ff0000;
   font-family:'Poppins', sans-serif;
 }
 
@@ -619,7 +633,9 @@ nav ul li a {
   width: 100%;
 }
 .list-names{
-  color:#11ce66;
+  /* color:#11ce66; */
+  color:#ff0000;
+
   font-family:'Poppins', sans-serif;
   font-weight: 600;
 }
@@ -757,7 +773,7 @@ nav ul li a {
 .about-container{
 
   width: 95vw;
-  height: 85vh;
+  height: 105vh;
   margin-left: 1vw;
   background-color: #00000077;
   border-radius: 30px;
@@ -799,7 +815,7 @@ nav ul li a {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 100px;
 
 }
 
@@ -808,7 +824,9 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #156438;
+  /* background-color: #156438; */
+    background-color: #8f0000;
+
   border-radius: 10px;
   padding: 20px;
 
@@ -826,7 +844,9 @@ nav ul li a {
   padding-bottom: 8px;
   padding-top: 8px;
   border-radius: 10px;
-  background: #11c160;
+  background: #700000;
+  /* background: #11c160; */
+
   border: none;
   font-family: inherit;
   text-align: center;
@@ -839,19 +859,22 @@ nav ul li a {
   margin: 20px 10px 0 10px;
 }
   .platform-button:hover {
-    box-shadow: 7px 7px 50px -14px #11ce66;
+    /* box-shadow: 7px 7px 50px -14px #11ce66; */
+    box-shadow: 7px 7px 50px -14px #ff0000;
   
   }
   
   .landing-button:active {
   
     transform: scale(0.97);
-   box-shadow: 7px 5px 56px -10px #11ce66;
+   box-shadow: 7px 5px 56px -10px #ff0000;
+   /* box-shadow: 7px 5px 56px -10px #11ce66; */
+
   }
 
   .ironhack-logo {
     margin-top:20px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
   }
 
 .ironhack-logo img {
