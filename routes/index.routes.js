@@ -17,17 +17,7 @@ router.get("/", (req, res, next) => {
   console.log("current user is: ",req.session.currentUser);
   let {currentUser} = req.session;
 
-  if (visitedBefore) {
-    // User has visited before, render regular index page
-    res.render("index",{currentUser,layout: layoutOption });
-
-  }else {
-    // First-time visitor, render the landing page
-    res.render('landing-page',{currentUser,layout: layoutOption }, /* { layout: false } */);
-    // Set a cookie to track that the user has visited
-    res.cookie('visitedBefore', 'true', { maxAge: 604800000 }); //7 days to expire
-}
-  
+  res.render("index",{currentUser, layout: layoutOption });
 });
 
 router.get('/about', (req,res)=>{

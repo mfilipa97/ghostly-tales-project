@@ -58,13 +58,13 @@
     <div class="comment">
       <div class="comment-header">
         <span class="comment-author">By {{author.username}}</span>
-        {{#if (eq author.username currentUser.username)}}
+        {{#ifEquals author.username currentUser.username}}
         <form action="/story/{{../story._id}}/comment/delete/{{this._id}}" method="POST">
           <input type="hidden" name="storyId" value="{{story._id}}">
           <input type="hidden" name="commentId" value="{{this._id}}">
           <button class="delete-comment-btn">Delete Comment</button>
         </form>
-        {{/if}}
+        {{/ifEquals}}
       </div>
       <p class="comment-content">{{content}}</p>
     </div>
