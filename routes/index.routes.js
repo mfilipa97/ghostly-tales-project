@@ -11,13 +11,11 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 /* GET home page */
 router.get("/", (req, res, next) => {
 
-  const visitedBefore = req.cookies.visitedBefore;
-  const layoutOption = visitedBefore ? 'layout' : false;
 
   console.log("current user is: ",req.session.currentUser);
   let {currentUser} = req.session;
 
-  res.render("index",{currentUser, layout: layoutOption });
+  res.render("index", {currentUser});
 });
 
 router.get('/about', (req,res)=>{
