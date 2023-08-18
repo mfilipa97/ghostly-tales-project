@@ -8,6 +8,9 @@
   width: 1vh;
 
 }
+.error {
+  color: white;
+}
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
@@ -49,6 +52,11 @@ body {
   filter: brightness(30%);
   
 
+}
+
+.clickable-profile {
+  text-decoration: none; /* no underline */
+  
 }
 
 .video-overlay {

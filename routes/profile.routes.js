@@ -11,20 +11,20 @@ const fileUpLoader = require('../config/cloudinary.config');
 router.get("/:username", isLoggedIn, async (req, res)=>{
 
     const {username} = req.params;
+    const {currentUser} =req.session;
 
     try{
 
       let foundUser = await User.findOne({username});
 
-      let {currentUser} =req.session;
+      console.log (currentUser)
+      console.log (foundUser)
 
       await foundUser.populate ('userStories');
 
       await foundUser.populate ('favorites');
 
-      console.log(foundUser.userStories);
-
-      res.render("user-profile", {foundUser,currentUser})
+      res.render("user-profile", {foundUser, currentUser})
     }
     catch(error){
       console.log("error while displaying user profile info: ", error);
